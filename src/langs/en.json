@@ -1,4 +1,7 @@
 {
+  "nav":{
+    "buttons": ["Home", "About", "Contacts"]
+  },
   "header": "welcome",
   "description": "this is the header is English"
 }

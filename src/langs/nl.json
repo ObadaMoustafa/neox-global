@@ -1,4 +1,7 @@
 {
+  "nav":{
+    "buttons": ["Home", "Over Ons", "Contact"]
+  },
   "header": "welcome",
-  "description": "deze is de header in het nederlands"
+  "description": "deze is de header in het Nederlands"
 }
