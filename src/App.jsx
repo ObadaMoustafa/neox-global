@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import Home from './pages/home/Home';
 import About from './pages/about/About';
 import Contacts from './pages/contacts/Contacts';
+import Navbar from './components/Navbar';
 
 function App() {
   const { t, i18n } = useTranslation();
@@ -12,6 +13,7 @@ function App() {
 
   return (
     <>
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
