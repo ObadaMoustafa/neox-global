@@ -1,18 +1,20 @@
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
-import { textColor } from '../../style';
+import { navMenuZIndex, textColor, titleColor } from '../../style';
 
 const lineWidth = 35;
-const lineHeight = 3;
-const containerHeight = 25;
+const lineHeight = 1;
+const containerHeight = 20;
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
+  width: 33%;
   height: ${containerHeight}px;
   cursor: pointer;
+  z-index: ${navMenuZIndex + 1};
 `;
 
 const Line = styled(motion.div)`
@@ -26,29 +28,35 @@ const nonMiddleLinesAnim = {
     width: lineWidth,
     rotate: 45,
     y: containerHeight / 2 - lineHeight / 2, // this formula to keep the lines crossing in the middle and no matter containerHeight is
-    transition: { duration: 1 },
+    transition: { duration: 0.4 },
   },
   isOpenAnimeBottom: {
     width: lineWidth,
     rotate: -45,
     y: -(containerHeight / 2 - lineHeight / 2), // this formula to keep the lines crossing in the middle and no matter containerHeight is
-    transition: { duration: 1 },
+    transition: { duration: 0.4 },
   },
   isCloseAnimeUp: {
     width: [lineWidth, lineWidth * 0.7, lineWidth],
-    transition: { duration: 4, repeat: Infinity, repeatDelay: 0.5 },
+    transition: { duration: 4, repeat: Infinity },
   },
   isCloseAnimeBottom: {
     width: [lineWidth, lineWidth * 0.7, lineWidth],
-    transition: { duration: 4, repeat: Infinity, repeatDelay: 0.5 },
+    transition: { duration: 4, repeat: Infinity },
   },
 };
 
 const middleLineAnime = {
-  isOpenAnime: { opacity: 0 },
+  isOpenAnime: { opacity: 0, transition: { duration: 0.4 } },
   isCloseAnime: {
-    width: [lineWidth * 0.7, lineWidth, lineWidth * 0.7],
-    transition: { duration: 4, repeat: Infinity, repeatDelay: 0.5 },
+    width: [
+      lineWidth * 0.7,
+      lineWidth,
+      lineWidth * 0.7,
+      lineWidth,
+      lineWidth * 0.7,
+    ],
+    transition: { duration: 4, repeat: Infinity },
   },
 };
 function BurgerMenuIcon({ props }) {
@@ -67,6 +75,7 @@ function BurgerMenuIcon({ props }) {
 
       {/* Second Line */}
       <Line
+        style={{ backgroundColor: titleColor }}
         variants={middleLineAnime}
         animate={isOpen ? 'isOpenAnime' : 'isCloseAnime'}
         transition={{ duration: 1 }}

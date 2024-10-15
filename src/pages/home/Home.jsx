@@ -1,7 +1,10 @@
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
+import Header from './components/Header';
+import PageContainer from '../../components/PageContainer';
 
 const StyledTest = styled(motion.h1)`
+  max-width: 100%;
   font-size: 50pt;
   color: #10105e;
 `;
@@ -14,11 +17,9 @@ function Home() {
   //write code here
 
   return (
-    <>
-      <StyledTest initial="hide" animate="show" variants={motionVariants}>
-        This is the homepage with animation
-      </StyledTest>
-    </>
+    <PageContainer>
+      <Header />
+    </PageContainer>
   );
 }
 

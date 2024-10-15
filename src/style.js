@@ -6,3 +6,7 @@ export const textColor = 'white';
 
 // measures
 export const navHeight = 80;
+export const navMenuZIndex = 999;
+
+export const xlPadding = 150;
+export const xsPadding = 150;
