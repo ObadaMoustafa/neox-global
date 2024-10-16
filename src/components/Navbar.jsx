@@ -1,23 +1,43 @@
 import styled from 'styled-components';
-import { bgColor, navHeight, xlPadding } from '../style';
+import { bgColor, navHeight, navMenuZIndex } from '../style';
 import BurgerMenu from './navbar/BurgerMenu';
 import Logo from './navbar/Logo';
 import LangSwitcher from './navbar/LangSwitcher';
+import { useMotionValueEvent, useScroll } from 'framer-motion';
+import { useRef } from 'react';
 
 const Nav = styled.nav`
   width: 100%;
   height: ${navHeight}px;
-  background-color: ${bgColor};
+  background: linear-gradient(
+    180deg,
+    rgba(44, 51, 57, 1) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 20px;
+  position: fixed;
+  top: 0;
+
+  z-index: ${navMenuZIndex};
 `;
+
 function Navbar() {
   //write code here
+  const { scrollY } = useScroll();
+  const navRef = useRef(null);
+
+  useMotionValueEvent(scrollY, 'change', (latest) => {
+    const nav = navRef.current;
+    // this id dark-nav exists in index.css file
+    if (latest > 100) nav.id = 'dark-nav';
+    else nav.removeAttribute('id');
+  });
 
   return (
-    <Nav>
+    <Nav ref={navRef}>
       <BurgerMenu />
       <Logo />
       <LangSwitcher />

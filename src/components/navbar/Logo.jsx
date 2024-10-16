@@ -3,9 +3,9 @@ import { navHeight, navMenuZIndex } from '../../style';
 import { motion } from 'framer-motion';
 
 const LogoEl = styled(motion.div)`
-  width: 33%;
   height: ${navHeight - 10}px;
   z-index: ${navMenuZIndex + 1};
+  flex-grow: 2;
 
   img {
     display: block;

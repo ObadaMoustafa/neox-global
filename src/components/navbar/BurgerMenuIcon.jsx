@@ -6,15 +6,19 @@ const lineWidth = 35;
 const lineHeight = 1;
 const containerHeight = 20;
 
-const Container = styled.div`
+const NavElement = styled.div`
+  flex-grow: 1;
+  z-index: ${navMenuZIndex + 1};
+`;
+
+const MenuIconContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  width: 33%;
   height: ${containerHeight}px;
   cursor: pointer;
-  z-index: ${navMenuZIndex + 1};
+  width: 50px;
 `;
 
 const Line = styled(motion.div)`
@@ -59,34 +63,34 @@ const middleLineAnime = {
     transition: { duration: 4, repeat: Infinity },
   },
 };
-function BurgerMenuIcon({ props }) {
+function BurgerMenuIcon({ isOpen, fn }) {
   //write code here
-  const { isOpen, setIsOpen } = props;
-  const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
-    <Container onClick={toggleMenu}>
-      {/* First Line */}
-      <Line
-        animate={isOpen ? 'isOpenAnimeUp' : 'isCloseAnimeUp'}
-        variants={nonMiddleLinesAnim}
-        transition={{ duration: 1 }}
-      />
+    <NavElement>
+      <MenuIconContainer onClick={fn}>
+        {/* First Line */}
+        <Line
+          animate={isOpen ? 'isOpenAnimeUp' : 'isCloseAnimeUp'}
+          variants={nonMiddleLinesAnim}
+          transition={{ duration: 1 }}
+        />
 
-      {/* Second Line */}
-      <Line
-        style={{ backgroundColor: titleColor }}
-        variants={middleLineAnime}
-        animate={isOpen ? 'isOpenAnime' : 'isCloseAnime'}
-        transition={{ duration: 1 }}
-      />
-      {/* Third Line */}
-      <Line
-        animate={isOpen ? 'isOpenAnimeBottom' : 'isCloseAnimeBottom'}
-        variants={nonMiddleLinesAnim}
-        transition={{ duration: 1 }}
-      />
-    </Container>
+        {/* Second Line */}
+        <Line
+          style={{ backgroundColor: titleColor }}
+          variants={middleLineAnime}
+          animate={isOpen ? 'isOpenAnime' : 'isCloseAnime'}
+          transition={{ duration: 1 }}
+        />
+        {/* Third Line */}
+        <Line
+          animate={isOpen ? 'isOpenAnimeBottom' : 'isCloseAnimeBottom'}
+          variants={nonMiddleLinesAnim}
+          transition={{ duration: 1 }}
+        />
+      </MenuIconContainer>
+    </NavElement>
   );
 }
 

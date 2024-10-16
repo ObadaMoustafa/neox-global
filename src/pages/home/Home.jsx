@@ -1,25 +1,29 @@
-import { motion } from 'framer-motion';
-import styled from 'styled-components';
 import Header from './components/Header';
-import PageContainer from '../../components/PageContainer';
+import Loader from '../../components/Loader';
+import { useContext, useEffect } from 'react';
+import { LoadingContext } from '../../contexts/LoadingContext';
+import Container from '../../components/Container';
+import styled from 'styled-components';
 
-const StyledTest = styled(motion.h1)`
-  max-width: 100%;
-  font-size: 50pt;
-  color: #10105e;
+const SectionContainer = styled(Container)`
+  width: 100%;
+  height: 550px;
 `;
-
-const motionVariants = {
-  hide: { opacity: 0, scale: 0, x: 1500 },
-  show: { opacity: 1, scale: 1, x: 0, transition: { duration: 1 } },
-};
 function Home() {
   //write code here
+  const { setIsLoading } = useContext(LoadingContext);
+  useEffect(() => {
+    setIsLoading(true);
+  }, []);
 
   return (
-    <PageContainer>
-      <Header />
-    </PageContainer>
+    <>
+      {/* <Loader /> */}
+      <div>
+        <Header />
+        <SectionContainer></SectionContainer>
+      </div>
+    </>
   );
 }
 

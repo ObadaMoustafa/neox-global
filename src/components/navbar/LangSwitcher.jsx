@@ -1,11 +1,11 @@
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import Flag from 'react-world-flags';
 import styled from 'styled-components';
 import FlipButton from '../bottuns/FlipButton';
 import { useTranslation } from 'react-i18next';
 
 const SwitchContainer = styled.div`
-  width: 80px;
+  width: 70px;
   height: 100%;
   display: flex;
   gap: 15px;
@@ -13,6 +13,7 @@ const SwitchContainer = styled.div`
   align-items: center;
   cursor: pointer;
   font-size: small;
+  font-weight: 100;
 `;
 
 const StyledFlag = styled(motion.div)`
@@ -25,6 +26,13 @@ const StyledFlag = styled(motion.div)`
   }
 `;
 
+const switchAnimation = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
+  exit: { opacity: 0 },
+  transition: { duration: 1 },
+};
+
 function LangSwitcher() {
   //write code here
   const { i18n } = useTranslation();
@@ -35,8 +43,8 @@ function LangSwitcher() {
 
   const EN = (
     <SwitchContainer id="lang">
-      <span>EN</span>
-      <StyledFlag initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+      <motion.span {...switchAnimation}>EN</motion.span>
+      <StyledFlag {...switchAnimation}>
         <Flag code="GB" />
       </StyledFlag>
     </SwitchContainer>
@@ -44,17 +52,20 @@ function LangSwitcher() {
 
   const NL = (
     <SwitchContainer id="lang">
-      <span>NL</span>
-      <StyledFlag initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+      <motion.span {...switchAnimation}>NL</motion.span>
+      <StyledFlag {...switchAnimation}>
         <Flag code="nl" />
       </StyledFlag>
     </SwitchContainer>
   );
 
   return (
-    <FlipButton fn={changeLang} width="33%">
-      {isEnglish ? NL : EN}
-    </FlipButton>
+    <AnimatePresence>
+      <FlipButton fn={changeLang}>
+        {isEnglish && NL}
+        {!isEnglish && EN}
+      </FlipButton>
+    </AnimatePresence>
   );
 }
 

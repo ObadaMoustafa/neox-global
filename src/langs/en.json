@@ -1,7 +1,17 @@
 {
-  "nav":{
-    "buttons": ["Home", "About", "Contacts"]
+  "nav": {
+    "buttons": [
+      ["home", "/"],
+      ["about", "/about"],
+      ["contacts", "contacts"]
+    ]
   },
-  "header": "welcome",
+  "header": [
+    "Your success is our priority, from cleaning to logistics.",
+    "We deliver solutions that work, every single time.",
+    "Building a better future, together with you.",
+    "Trust us to keep things moving smoothly.",
+    "Your business deserves excellence, and we make it happen."
+  ],
   "description": "this is the header is English"
 }

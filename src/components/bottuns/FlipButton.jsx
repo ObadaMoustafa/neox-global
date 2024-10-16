@@ -4,15 +4,14 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 
 const TheButton = styled(motion.a)`
-  width: 100px;
   height: ${navHeight - 15}px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
-
+  flex-grow: 1;
   span {
+    cursor: pointer;
     display: flex;
   }
 `;
@@ -38,10 +37,9 @@ function FlipButton({ children, fn, href, width }) {
   return (
     <TheButton
       href={href}
-      onClick={fn}
       onMouseEnter={handleMouseIn}
       onMouseLeave={handleMouseOut}
-      style={{ width: width }}
+      style={{ width }}
     >
       {/* TEXT */}
       <motion.span
@@ -55,6 +53,7 @@ function FlipButton({ children, fn, href, width }) {
         {children}
       </motion.span>
       <motion.span
+        onClick={fn}
         variants={variants}
         initial="secondaryMouseOut"
         animate={isHover ? 'originalMouseOut' : 'secondaryMouseOut'}
