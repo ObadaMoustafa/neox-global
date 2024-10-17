@@ -4,6 +4,8 @@ import { useTranslation } from 'react-i18next';
 import AnimatedMultiText from '../../../components/AnimatedMultiText';
 import { xlPadding, xsPadding } from '../../../style';
 import Container from '../../../components/Container';
+import ScrollDown from '../../../components/ScrollDown';
+import GoTop from '../../../components/GoTop';
 
 const StyledHeader = styled.header`
   width: 100%;
@@ -66,6 +68,27 @@ const Video = styled.video`
   left: 50%;
   transform: translate(-50%, -50%);
 `;
+
+const ScrollDownButton = styled(ScrollDown)`
+  position: absolute;
+  bottom: 15%;
+  left: 10px;
+  scale: 0.6;
+
+  // for tablet version
+  @media only screen and (min-width: 375px) {
+    bottom: 25%;
+    scale: 0.8;
+    left: 20px;
+  }
+  // for computer version
+  @media only screen and (min-width: 800px) {
+    scale: 1;
+    bottom: 10%;
+    left: 40px;
+  }
+`;
+
 function Header() {
   //write code here
   const videoRef = useRef(null);
@@ -88,6 +111,10 @@ function Header() {
     };
   }, []);
 
+  function scrollDown() {
+    const windowHeight = window.innerHeight;
+    window.scrollTo(0, windowHeight);
+  }
   return (
     <StyledHeader>
       <Video autoPlay muted loop ref={videoRef}>
@@ -101,6 +128,8 @@ function Header() {
       <Container className="animated-text">
         <AnimatedMultiText textArr={t('header', { returnObjects: true })} />
       </Container>
+      <ScrollDownButton fn={scrollDown} />
+      <GoTop />
     </StyledHeader>
   );
 }

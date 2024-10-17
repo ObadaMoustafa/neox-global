@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect } from 'react';
 import styled from 'styled-components';
 import { LoadingContext } from '../contexts/LoadingContext';
 import NeoxLogoRight from '../assets/logo-part-right.png';
@@ -14,13 +14,14 @@ const LoaderContainer = styled(motion.div)`
   top: 0;
   background-color: #00000000;
   z-index: 999;
+  display: flex;
+  flex-direction: column;
 `;
 
 const LoaderSlice = styled(motion.div)`
-  background-color: #a8a8a8ff;
-  height: calc(100% / 6);
+  background-color: #9d9e9eff;
   width: 100%;
-  margin: 0;
+  flex-grow: 1;
 `;
 
 const VisualContainer = styled.div`
@@ -84,7 +85,7 @@ function Loader() {
     transition: { duration: 2, type: 'tween' },
   };
   const LoaderSlices = [];
-  for (let i = 0; i <= 5; i++) {
+  for (let i = 0; i <= 7; i++) {
     const isEven = i % 2 === 0;
     LoaderSlices.push(
       <LoaderSlice

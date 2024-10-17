@@ -18,7 +18,7 @@ function Home() {
 
   return (
     <>
-      {/* <Loader /> */}
+      <Loader />
       <div>
         <Header />
         <SectionContainer></SectionContainer>
