@@ -74,6 +74,7 @@ function Loader() {
   const { isLoading, setIsLoading } = useContext(LoadingContext);
 
   useEffect(() => {
+    console.log('should be scrolled');
     setIsLoading(true);
     const stopLoading = setTimeout(() => {
       setIsLoading(false);

@@ -1,6 +1,6 @@
 // colors
 export const bgColor = '#2c3339';
-export const btnColor = 'rgb(174,144,83)';
+export const btnColor = '#ae9053';
 export const titleColor = '#f4b335';
 export const textColor = 'white';
 export const footerTextColor = '#9d9fa1';

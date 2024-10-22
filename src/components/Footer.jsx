@@ -1,54 +1,81 @@
 import styled from 'styled-components';
-import Container from './Container';
-import FooterColumn from './footer/FooterColumn';
+import FooterBlock from './footer/FooterBlock';
 import FooterContent from './footer/FooterContent';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
+import { xsPadding } from '../style';
+import Section from './Section';
 
-const FooterContainer = styled(motion.create(Container))`
-  display: flex;
-  flex-direction: column;
+const FooterContainer = styled(motion.create(Section))`
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
   color: white;
   font-size: 10pt;
   font-weight: 100;
   overflow: hidden;
+  padding-top: ${xsPadding}px;
+  padding-bottom: ${xsPadding}px;
+  margin-top: 100px;
   gap: 30px;
-
   // shadow
   -webkit-box-shadow: 0px -10px 30px -11px rgba(244, 179, 53, 1);
   -moz-box-shadow: 0px -10px 30px -11px rgba(244, 179, 53, 1);
   box-shadow: 0px -10px 30px -11px rgba(244, 179, 53, 1);
 
-  > div {
-    padding: 50px 0;
+  //^ for tablet version
+  @media only screen and (min-width: 450px) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
 
-    // flex for content in the column
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  // for tablet version
-  @media only screen and (min-width: 375px) {
-    flex-direction: row;
-    flex-wrap: wrap;
-    > div {
+    > .footer-block {
+      grid-column: span 1;
     }
 
-    > div:last-of-type {
-      flex-grow: 1;
+    > .footer-block:last-of-type {
+      grid-column: span 2;
     }
   }
-  // for computer version
+
+  //^ for computer version
   @media only screen and (min-width: 800px) {
+    grid-template-columns: 1fr 1fr 1fr; /* Three columns for computer version */
+    grid-template-rows: auto;
     border-top-right-radius: 50%;
     border-top-left-radius: 50%;
-    flex-wrap: nowrap;
-    gap: 20px;
 
-    > div {
-      padding: 70px 0;
-      flex-grow: 1;
+    > .footer-block:last-of-type {
+      grid-column: span 1;
     }
+  }
+`;
+
+const StyledFooterColumn = styled(FooterBlock)`
+  // flex for content in the column
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  //^ for tablet version
+  @media only screen and (min-width: 450px) {
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  //^ for computer version
+  @media only screen and (min-width: 800px) {
+    padding: 50px 0;
+  }
+`;
+
+const Content = styled.div`
+  text-align: center;
+
+  //^ for tablet version
+  @media only screen and (min-width: 450px) {
+    text-align: left;
   }
 `;
 
@@ -56,9 +83,11 @@ const containerVariants = {
   init: { scale: 0.5, opacity: 0, y: 50 },
   view: { scale: 1, opacity: 1, y: 0 },
 };
+
 function Footer() {
   //write code here
-
+  const { t } = useTranslation();
+  const footerArr = t('footer', { returnObjects: true });
   return (
     <FooterContainer
       variants={containerVariants}
@@ -67,30 +96,16 @@ function Footer() {
       viewport={{ once: true }}
       transition={{ duration: 0.3, staggerChildren: 0.3 }}
     >
-      <div>
-        <FooterColumn title="Contacts">
-          <FooterContent>
-            <div>Voorbeeldweg 123 1100GG Stadsnaam</div>
-            <p>06-voorbeeld info@voorbeeld.nl</p>
-          </FooterContent>
-        </FooterColumn>
-      </div>
-      <div>
-        <FooterColumn title="Social Media">
-          <FooterContent>
-            <div>Voorbeeldweg 123 1100GG Stadsnaam</div>
-            <p>06-voorbeeld info@voorbeeld.nl</p>
-          </FooterContent>
-        </FooterColumn>
-      </div>
-      <div>
-        <FooterColumn title="About us">
-          <FooterContent>
-            <div>Voorbeeldweg 123 1100GG Stadsnaam</div>
-            <p>06-voorbeeld info@voorbeeld.nl</p>
-          </FooterContent>
-        </FooterColumn>
-      </div>
+      {footerArr &&
+        footerArr.map(({ title, content }, i) => (
+          <StyledFooterColumn key={i} title={title}>
+            <FooterContent>
+              {content.map((text, i) => (
+                <Content key={i}>{text}</Content>
+              ))}
+            </FooterContent>
+          </StyledFooterColumn>
+        ))}
     </FooterContainer>
   );
 }

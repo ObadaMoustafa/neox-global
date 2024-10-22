@@ -40,6 +40,7 @@ function FlipButton({ children, fn, href, width }) {
       onMouseEnter={handleMouseIn}
       onMouseLeave={handleMouseOut}
       style={{ width }}
+      onClick={fn}
     >
       {/* TEXT */}
       <motion.span
@@ -53,7 +54,6 @@ function FlipButton({ children, fn, href, width }) {
         {children}
       </motion.span>
       <motion.span
-        onClick={fn}
         variants={variants}
         initial="secondaryMouseOut"
         animate={isHover ? 'originalMouseOut' : 'secondaryMouseOut'}

@@ -2,27 +2,24 @@ import Header from './components/Header';
 import Loader from '../../components/Loader';
 import { useContext, useEffect } from 'react';
 import { LoadingContext } from '../../contexts/LoadingContext';
-import Container from '../../components/Container';
-import styled from 'styled-components';
+import GoTop from '../../components/GoTop';
+import CompaniesSection from './components/CompaniesSection';
 
-const SectionContainer = styled(Container)`
-  width: 100%;
-  height: 550px;
-`;
 function Home() {
   //write code here
   const { setIsLoading } = useContext(LoadingContext);
+
   useEffect(() => {
-    setIsLoading(true);
+    window.scrollTo(0, 0);
+    setIsLoading(false);
   }, []);
 
   return (
     <>
       <Loader />
-      <div>
-        <Header />
-        <SectionContainer></SectionContainer>
-      </div>
+      <Header />
+      <CompaniesSection />
+      <GoTop />
     </>
   );
 }

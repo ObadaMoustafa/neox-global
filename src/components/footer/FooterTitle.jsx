@@ -5,7 +5,7 @@ import { footerTextColor } from '../../style';
 const StyledFooterTitle = styled(motion.h4)`
   color: ${footerTextColor};
   font-weight: 700;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
   font-size: 15pt;
 `;
 

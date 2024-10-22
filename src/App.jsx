@@ -7,12 +7,11 @@ import styled from 'styled-components';
 import Footer from './components/Footer';
 
 const Main = styled.main`
-  display: flex;
-  flex-direction: column;
+  position: relative;
 `;
 function App() {
   return (
-    <Main>
+    <>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -20,7 +19,7 @@ function App() {
         <Route path="/contacts" element={<Contacts />} />
       </Routes>
       <Footer />
-    </Main>
+    </>
   );
 }
 

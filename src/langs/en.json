@@ -13,5 +13,14 @@
     "Trust us to keep things moving smoothly.",
     "Your business deserves excellence, and we make it happen."
   ],
-  "description": "this is the header is English"
+  "description": "this is the header is English",
+  "footer": [
+    { "title": "Contacts", "content": ["0654-998-243", "global@neox.com"] },
+    {
+      "title": "Social Media",
+      "content": ["Facebook", "Twitter", "Instagram"]
+    },
+    { "title": "About us", "content": ["story", "goals"] }
+  ],
+  "companies": ["Logistics", "Cleaning", "Employing"]
 }

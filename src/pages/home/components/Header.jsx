@@ -2,10 +2,8 @@ import styled from 'styled-components';
 import { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import AnimatedMultiText from '../../../components/AnimatedMultiText';
-import { xlPadding, xsPadding } from '../../../style';
-import Container from '../../../components/Container';
+import Section from '../../../components/Section';
 import ScrollDown from '../../../components/ScrollDown';
-import GoTop from '../../../components/GoTop';
 
 const StyledHeader = styled.header`
   width: 100%;
@@ -45,7 +43,7 @@ const StyledHeader = styled.header`
     color: white;
 
     // for tablet version
-    @media only screen and (min-width: 375px) {
+    @media only screen and (min-width: 450px) {
       font-size: 2rem;
       width: 65%;
       text-align: left;
@@ -76,7 +74,7 @@ const ScrollDownButton = styled(ScrollDown)`
   scale: 0.6;
 
   // for tablet version
-  @media only screen and (min-width: 375px) {
+  @media only screen and (min-width: 450px) {
     bottom: 25%;
     scale: 0.8;
     left: 20px;
@@ -125,11 +123,10 @@ function Header() {
       </Video>
       <div className="dark-layer"></div>
       <div className="feather-bottom"></div>
-      <Container className="animated-text">
+      <Section className="animated-text">
         <AnimatedMultiText textArr={t('header', { returnObjects: true })} />
-      </Container>
+      </Section>
       <ScrollDownButton fn={scrollDown} />
-      <GoTop />
     </StyledHeader>
   );
 }

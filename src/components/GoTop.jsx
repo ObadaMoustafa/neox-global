@@ -9,27 +9,34 @@ import styled from 'styled-components';
 import { btnColor, textColor } from '../style';
 import { useState } from 'react';
 
-const SVG = styled(motion.svg)`
+const GoTopContainer = styled(motion.div)`
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: -15px;
+  right: -15px;
   width: 100px;
   height: 100px;
   cursor: pointer;
-  scale: 0.6;
+  scale: 0.4;
   z-index: 2;
 
-  &:hover .up-arrow {
+  &:hover .icon {
     transition: all 1s;
     fill: ${btnColor};
     opacity: 1;
   }
+
   .up-arrow {
     font-weight: 100;
     scale: 0.13;
     fill: ${textColor};
-    transform: rotate(90deg) translate(-202px, -208px);
-    opacity: 0.3;
+  }
+
+  .icon {
+    width: 80%;
+    object-fit: contain;
+    display: block;
+    transform: rotate(90deg) translate(-93px, -10px);
+    opacity: 1;
     transform-origin: center;
   }
 
@@ -47,6 +54,17 @@ const SVG = styled(motion.svg)`
   &,
   .indicator {
     stroke: #fafafa;
+  }
+
+  //^ for computer version
+  @media only screen and (min-width: 800px) {
+    bottom: 10px;
+    right: 10px;
+    scale: 0.7;
+
+    .icon {
+      opacity: 0.6;
+    }
   }
 `;
 
@@ -77,8 +95,7 @@ function GoTop() {
   return (
     <AnimatePresence>
       {showBtn && (
-        <SVG
-          viewBox="0 0 100 100"
+        <GoTopContainer
           onClick={goToTop}
           variants={showVariants}
           initial="init"
@@ -86,20 +103,23 @@ function GoTop() {
           exit="init"
           transition={{ duration: 0.8, type: 'spring' }}
         >
-          <circle cx="50" cy="50" r="45" pathLength="1" className="bg" />
-          <motion.circle
-            cx="50"
-            cy="50"
-            r="45"
-            pathLength="1"
-            className="indicator"
-            style={{ pathLength: path }}
+          <svg viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="45" pathLength="1" className="bg" />
+            <motion.circle
+              cx="50"
+              cy="50"
+              r="45"
+              pathLength="1"
+              className="indicator"
+              style={{ pathLength: path }}
+            />
+          </svg>
+          <img
+            src="https://res.cloudinary.com/elsharbatly/image/upload/v1729610046/NEOX/Images/up-arrow_usox8x.png"
+            className="icon"
+            alt=""
           />
-          <path
-            className="up-arrow"
-            d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm231-113.9L103.5 277.6c-9.4 9.4-9.4 24.6 0 33.9l17 17c9.4 9.4 24.6 9.4 33.9 0L256 226.9l101.6 101.6c9.4 9.4 24.6 9.4 33.9 0l17-17c9.4-9.4 9.4-24.6 0-33.9L273 142.1c-9.4-9.4-24.6-9.4-34 0z"
-          ></path>
-        </SVG>
+        </GoTopContainer>
       )}
     </AnimatePresence>
   );

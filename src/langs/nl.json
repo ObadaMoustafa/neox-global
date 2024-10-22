@@ -13,5 +13,14 @@
     "Vertrouw ons om alles soepel te laten verlopen.",
     "Uw bedrijf verdient uitmuntendheid, en wij zorgen daarvoor."
   ],
-  "description": "deze is de header in het Nederlands"
+  "description": "deze is de header in het Nederlands",
+  "footer": [
+    { "title": "Contacten", "content": ["0654-998-243", "global@neox.com"] },
+    {
+      "title": "Social Media",
+      "content": ["Facebook", "Twitter", "Instagram"]
+    },
+    { "title": "Over ons", "content": ["Verhal", "Doelen"] }
+  ],
+  "companies": ["Logistics", "Schoonmaken", "EAS"]
 }
