@@ -124,7 +124,9 @@ function Header() {
       <div className="dark-layer"></div>
       <div className="feather-bottom"></div>
       <Section className="animated-text">
-        <AnimatedMultiText textArr={t('header', { returnObjects: true })} />
+        <AnimatedMultiText
+          textArr={t('homepage.header', { returnObjects: true })}
+        />
       </Section>
       <ScrollDownButton fn={scrollDown} />
     </StyledHeader>

@@ -6,14 +6,6 @@
       ["contacten", "contacts"]
     ]
   },
-  "header": [
-    "Uw succes is onze prioriteit, van schoonmaak tot logistiek.",
-    "Wij leveren oplossingen die altijd werken.",
-    "Samen bouwen we aan een betere toekomst.",
-    "Vertrouw ons om alles soepel te laten verlopen.",
-    "Uw bedrijf verdient uitmuntendheid, en wij zorgen daarvoor."
-  ],
-  "description": "deze is de header in het Nederlands",
   "footer": [
     { "title": "Contacten", "content": ["0654-998-243", "global@neox.com"] },
     {
@@ -22,26 +14,38 @@
     },
     { "title": "Over ons", "content": ["Verhal", "Doelen"] }
   ],
-  "companies": [
-    {
-      "image": "https://res.cloudinary.com/elsharbatly/image/upload/v1729610046/NEOX/Images/logo-for-global-website_ffzii4.png",
-      "text": "Logistics"
+  "homepage": {
+    "header": [
+      "Uw succes is onze prioriteit, van schoonmaak tot logistiek.",
+      "Wij leveren oplossingen die altijd werken.",
+      "Samen bouwen we aan een betere toekomst.",
+      "Vertrouw ons om alles soepel te laten verlopen.",
+      "Uw bedrijf verdient uitmuntendheid, en wij zorgen daarvoor."
+    ],
+    "companies": {
+      "title": "zie ons bedrijven",
+      "content": [
+        {
+          "image": "https://res.cloudinary.com/elsharbatly/image/upload/v1729610046/NEOX/Images/logo-for-global-website_ffzii4.png",
+          "text": "Logistics"
+        },
+        {
+          "image": "https://res.cloudinary.com/elsharbatly/image/upload/v1729610046/NEOX/Images/cleaning_e1b1tn.png",
+          "text": "Schoonmaken"
+        },
+        {
+          "image": "https://res.cloudinary.com/elsharbatly/image/upload/v1729610046/NEOX/Images/EAS_b1cyju.png",
+          "text": "EAS"
+        }
+      ]
     },
-    {
-      "image": "https://res.cloudinary.com/elsharbatly/image/upload/v1729610046/NEOX/Images/cleaning_e1b1tn.png",
-      "text": "Schoonmaken"
-    },
-    {
-      "image": "https://res.cloudinary.com/elsharbatly/image/upload/v1729610046/NEOX/Images/EAS_b1cyju.png",
-      "text": "EAS"
+    "objective": {
+      "title": "Uw Vertrouwde Partner",
+      "content": [
+        "Wij zijn toegewijd aan het leveren van de hoogste kwaliteit in elke dienst die wij aanbieden. Of het nu gaat om onze schoonmaakdienst, logistiek, uitzendwerk of bouwdiensten, wij begrijpen dat uw succes ons succes is. Wij stellen onze klanten op de eerste plaats, houden ons aan onze beloften en zorgen ervoor dat de dienstverlening zoals afgesproken en op tijd wordt geleverd.",
+        "Met vier gespecialiseerde bedrijven onder één dak bieden wij een uitgebreide oplossing om aan al uw behoeften te voldoen, ongeacht de sector. Onze toewijding aan efficiëntie en precisie zorgt ervoor dat wij niet alleen aan uw verwachtingen voldoen, maar deze overtreffen.",
+        "Vertrouw erop dat wij u op de eerste plaats zetten, want uw tevredenheid drijft alles wat wij doen."
+      ]
     }
-  ],
-  "objective": {
-    "title": "Uw Vertrouwde Partner",
-    "content": [
-      "Wij zijn toegewijd aan het leveren van de hoogste kwaliteit in elke dienst die wij aanbieden. Of het nu gaat om onze schoonmaakdienst, logistiek, uitzendwerk of bouwdiensten, wij begrijpen dat uw succes ons succes is. Wij stellen onze klanten op de eerste plaats, houden ons aan onze beloften en zorgen ervoor dat de dienstverlening zoals afgesproken en op tijd wordt geleverd.",
-      "Met vier gespecialiseerde bedrijven onder één dak bieden wij een uitgebreide oplossing om aan al uw behoeften te voldoen, ongeacht de sector. Onze toewijding aan efficiëntie en precisie zorgt ervoor dat wij niet alleen aan uw verwachtingen voldoen, maar deze overtreffen.",
-      "Vertrouw erop dat wij u op de eerste plaats zetten, want uw tevredenheid drijft alles wat wij doen."
-    ]
   }
 }

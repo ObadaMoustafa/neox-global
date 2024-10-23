@@ -44,32 +44,30 @@ const CompaniesContainer = styled(motion.div)`
 const MotionCompany = styled(motion.create(Company))``;
 
 const companyVariants = {
-  init: { scale: 0, y: -100 },
-  show: { scale: 1, y: 0 },
+  init: { scaleX: 0, y: -100 },
+  show: { scaleX: 1, y: 0 },
 };
 function CompaniesSection() {
   const { t } = useTranslation();
 
   // get all companies updated automatically with chosen language
 
-  const companies = t('companies', { returnObjects: true });
+  const companies = t('homepage.companies.content', { returnObjects: true });
+  const device = window.innerWidth < 800 ? 'mobile' : 'pc';
 
   return (
     <ActivitiesSection>
-      <AnimatedTitle text="Discover our companies" />
-      <CompaniesContainer
-        variants={companyVariants}
-        initial="init"
-        whileInView="show"
-        viewport={{ once: true }}
-        transition={{ staggerChildren: 0.25 }}
-      >
+      <AnimatedTitle text={t('homepage.companies.title')} />
+      <CompaniesContainer>
         {companies.map(({ image, text }, i) => (
           <MotionCompany
             key={i}
             image={image}
             text={text}
             variants={companyVariants}
+            initial="init"
+            whileInView="show"
+            transition={{ duration: 0.5 }}
           />
         ))}
       </CompaniesContainer>

@@ -5,6 +5,7 @@ import Contacts from './pages/contacts/Contacts';
 import Navbar from './components/Navbar';
 import styled from 'styled-components';
 import Footer from './components/Footer';
+import WindowContextProvider from './contexts/WindowContext';
 
 const Main = styled.main`
   position: relative;
@@ -12,13 +13,15 @@ const Main = styled.main`
 function App() {
   return (
     <>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contacts" element={<Contacts />} />
-      </Routes>
-      <Footer />
+      <WindowContextProvider>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contacts" element={<Contacts />} />
+        </Routes>
+        <Footer />
+      </WindowContextProvider>
     </>
   );
 }

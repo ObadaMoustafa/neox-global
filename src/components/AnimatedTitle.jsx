@@ -5,19 +5,22 @@ import { useState } from 'react';
 import { titleColor, titleFontSize } from '../style';
 
 const TitleContainer = styled(motion.div)`
-  height: 40px;
+  height: fit-content;
   position: relative;
   overflow: hidden;
   margin: 0 auto;
   display: flex;
   padding: 0 20px;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   border-left: 1px solid white;
   border-right: 1px solid white;
+  text-transform: uppercase;
+
   //^ Tablet version
   @media only screen and (min-width: 450px) {
     margin: 0;
+    border-right: none;
   }
 
   //^ Computer version
@@ -26,8 +29,8 @@ const TitleContainer = styled(motion.div)`
 `;
 
 const titleContainerVariants = {
-  init: { height: 0, width: '4px' },
-  show: { height: '40px', width: 'fit-content' },
+  init: { width: '4px' },
+  show: { width: 'fit-content' },
 };
 
 const StyledAnimatedTitle = styled(AnimatedText)`
@@ -57,9 +60,9 @@ function AnimatedTitle({ text, className }) {
       variants={titleContainerVariants}
       initial="init"
       whileInView="show"
-      viewport={{ once: true }}
       onViewportEnter={handleShowTitle}
-      transition={{ width: { duration: text.length * 0.03 } }}
+      transition={{ width: { duration: text.length * 0.025 } }}
+      viewport={{ once: true }}
     >
       {showTitle && <StyledAnimatedTitle text={showTitle ? text : ''} />}
     </TitleContainer>

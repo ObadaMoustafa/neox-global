@@ -16,5 +16,5 @@ export const xlPadding = 150;
 export const xsPadding = 20;
 
 // Fonts
-export const titleFontSize = { mobile: '17pt', tablet: '20pt', pc: '25pt' };
+export const titleFontSize = { mobile: '13pt', tablet: '20pt', pc: '25pt' };
 export const contentFontSize = { mobile: '18px', pc: '30px' };

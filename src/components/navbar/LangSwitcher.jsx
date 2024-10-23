@@ -3,6 +3,7 @@ import Flag from 'react-world-flags';
 import styled from 'styled-components';
 import FlipButton from '../bottuns/FlipButton';
 import { useTranslation } from 'react-i18next';
+import { useState } from 'react';
 
 const SwitchContainer = styled.div`
   width: 70px;
@@ -36,9 +37,11 @@ const switchAnimation = {
 function LangSwitcher() {
   //write code here
   const { i18n } = useTranslation();
-  const isEnglish = i18n.language === 'en';
+  const [isEnglish, setIsEnglish] = useState(i18n.language === 'en');
+
   const changeLang = () => {
     i18n.changeLanguage(isEnglish ? 'nl' : 'en');
+    setIsEnglish(!isEnglish);
   };
 
   const EN = (

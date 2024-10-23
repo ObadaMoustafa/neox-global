@@ -5,6 +5,8 @@ import AnimatedTitle from '../../../components/AnimatedTitle';
 import Image from '../../../components/Image';
 import { motion } from 'framer-motion';
 import { contentFontSize, textColor } from '../../../style';
+import { useContext, useEffect } from 'react';
+import { WindowContext } from '../../../contexts/WindowContext';
 const ComponentSection = styled(Section)`
   display: grid;
   grid-template-columns: repeat(1, auto);
@@ -76,13 +78,25 @@ const VerticalImage = styled(motion.create(Image))`
 
 // * animation * \\
 const paragraphVariants = {
-  init: {
-    opacity: 0,
-    x: -200,
+  pc: {
+    init: {
+      opacity: 0,
+      x: -200,
+    },
+    show: {
+      opacity: 1,
+      x: 0,
+    },
   },
-  show: {
-    opacity: 1,
-    x: 0,
+  mobile: {
+    init: {
+      opacity: 0,
+      y: 150,
+    },
+    show: {
+      opacity: 1,
+      y: 0,
+    },
   },
 };
 
@@ -98,8 +112,9 @@ const horizontalImageVariants = {
 function TrustedPartner() {
   //write code here
   const { t } = useTranslation();
-  const paragraphs = t('objective.content', { returnObjects: true });
-  const title = t('objective.title');
+  const paragraphs = t('homepage.objective.content', { returnObjects: true });
+  const title = t('homepage.objective.title');
+  const { device } = useContext(WindowContext);
   return (
     <ComponentSection>
       {/* title */}
@@ -110,7 +125,9 @@ function TrustedPartner() {
         {paragraphs.map((text, i) => (
           <motion.p
             key={i}
-            variants={paragraphVariants}
+            variants={
+              device !== 'pc' ? paragraphVariants.mobile : paragraphVariants.pc
+            }
             initial="init"
             whileInView="show"
             transition={{ duration: 0.9 }}
