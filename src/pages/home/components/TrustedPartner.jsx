@@ -3,8 +3,6 @@ import Section from '../../../components/Section';
 import { useTranslation } from 'react-i18next';
 import AnimatedTitle from '../../../components/AnimatedTitle';
 import Image from '../../../components/Image';
-import businessStuffImage from '../../../images/business-stuff.png';
-import workingSeriousImage from '../../../images/working-serious.png';
 import { motion } from 'framer-motion';
 import { contentFontSize, textColor } from '../../../style';
 const ComponentSection = styled(Section)`
@@ -124,7 +122,7 @@ function TrustedPartner() {
 
       {/* Picture */}
       <HorizontalImage
-        src={businessStuffImage}
+        src="https://res.cloudinary.com/elsharbatly/image/upload/v1729700499/NEOX/Images/business-stuff_cqovg6.png"
         alt="business photo"
         variants={horizontalImageVariants}
         initial="init"
@@ -132,7 +130,7 @@ function TrustedPartner() {
         transition={{ duration: 0.9 }}
       />
       <VerticalImage
-        src={workingSeriousImage}
+        src="https://res.cloudinary.com/elsharbatly/image/upload/v1729700498/NEOX/Images/working-serious_iaflpi.png"
         alt="business photo"
         variants={verticalImageVariants}
         initial="init"
