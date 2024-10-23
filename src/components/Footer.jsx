@@ -23,7 +23,7 @@ const FooterContainer = styled(motion.create(Section))`
   -moz-box-shadow: 0px -10px 30px -11px rgba(244, 179, 53, 1);
   box-shadow: 0px -10px 30px -11px rgba(244, 179, 53, 1);
 
-  //^ for tablet version
+  //^ Tablet version
   @media only screen and (min-width: 450px) {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto;
@@ -37,9 +37,9 @@ const FooterContainer = styled(motion.create(Section))`
     }
   }
 
-  //^ for computer version
+  //^ Computer version
   @media only screen and (min-width: 800px) {
-    grid-template-columns: 1fr 1fr 1fr; /* Three columns for computer version */
+    grid-template-columns: 1fr 1fr 1fr; /* Three columns Computer version */
     grid-template-rows: auto;
     border-top-right-radius: 50%;
     border-top-left-radius: 50%;
@@ -58,13 +58,13 @@ const StyledFooterColumn = styled(FooterBlock)`
   align-items: center;
   gap: 10px;
 
-  //^ for tablet version
+  //^ Tablet version
   @media only screen and (min-width: 450px) {
     justify-content: flex-start;
     align-items: flex-start;
   }
 
-  //^ for computer version
+  //^ Computer version
   @media only screen and (min-width: 800px) {
     padding: 50px 0;
   }
@@ -73,7 +73,7 @@ const StyledFooterColumn = styled(FooterBlock)`
 const Content = styled.div`
   text-align: center;
 
-  //^ for tablet version
+  //^ Tablet version
   @media only screen and (min-width: 450px) {
     text-align: left;
   }

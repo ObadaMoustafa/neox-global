@@ -56,7 +56,7 @@ const GoTopContainer = styled(motion.div)`
     stroke: #fafafa;
   }
 
-  //^ for computer version
+  //^ Computer version
   @media only screen and (min-width: 800px) {
     bottom: 10px;
     right: 10px;

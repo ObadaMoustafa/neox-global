@@ -74,8 +74,11 @@ function Loader() {
   const { isLoading, setIsLoading } = useContext(LoadingContext);
 
   useEffect(() => {
-    console.log('should be scrolled');
+    // scroll to top before every page and start the fake loading
+    window.scrollTo(0, 0);
     setIsLoading(true);
+
+    // make it false to start the transaction and play the page
     const stopLoading = setTimeout(() => {
       setIsLoading(false);
     }, 1000);

@@ -1,7 +1,12 @@
-function About() {
-  //write code here
+import Loader from '../../components/Loader';
 
-  return <h1>welcome from About component</h1>;
+function About() {
+  return (
+    <>
+      <Loader />
+      <h1>welcome from About component</h1>;
+    </>
+  );
 }
 
 export default About;

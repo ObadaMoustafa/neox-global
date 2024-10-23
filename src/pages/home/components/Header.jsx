@@ -42,13 +42,13 @@ const StyledHeader = styled.header`
     bottom: 50px;
     color: white;
 
-    // for tablet version
+    // Tablet version
     @media only screen and (min-width: 450px) {
       font-size: 2rem;
       width: 65%;
       text-align: left;
     }
-    // for computer version
+    // Computer version
     @media only screen and (min-width: 800px) {
       font-size: 3rem;
       bottom: 100px;
@@ -73,13 +73,13 @@ const ScrollDownButton = styled(ScrollDown)`
   left: 10px;
   scale: 0.6;
 
-  // for tablet version
+  // Tablet version
   @media only screen and (min-width: 450px) {
     bottom: 25%;
     scale: 0.8;
     left: 20px;
   }
-  // for computer version
+  // Computer version
   @media only screen and (min-width: 800px) {
     scale: 1;
     bottom: 10%;

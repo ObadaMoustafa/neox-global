@@ -6,10 +6,10 @@ const StyledContainer = styled.section`
   padding: ${navHeight + 20}px ${xsPadding}px 20px;
   width: 100%;
 
-  //^ for tablet version
+  //^ Tablet version
   @media only screen and (min-width: 450px) {
   }
-  //^ for computer version
+  //^ Computer version
   @media only screen and (min-width: 800px) {
     padding-left: ${xlPadding}px;
     padding-right: ${xlPadding}px;

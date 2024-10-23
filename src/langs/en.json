@@ -22,5 +22,26 @@
     },
     { "title": "About us", "content": ["story", "goals"] }
   ],
-  "companies": ["Logistics", "Cleaning", "Employing"]
+  "companies": [
+    {
+      "image": "https://res.cloudinary.com/elsharbatly/image/upload/v1729610046/NEOX/Images/logo-for-global-website_ffzii4.png",
+      "text": "Logistics"
+    },
+    {
+      "image": "https://res.cloudinary.com/elsharbatly/image/upload/v1729610046/NEOX/Images/cleaning_e1b1tn.png",
+      "text": "Cleaning"
+    },
+    {
+      "image": "https://res.cloudinary.com/elsharbatly/image/upload/v1729610046/NEOX/Images/EAS_b1cyju.png",
+      "text": "Employing"
+    }
+  ],
+  "objective": {
+    "title": "Your Trusted Partner",
+    "content": [
+      "At our core, we are committed to delivering the highest quality in every service we provide. Whether it's through our cleaning company, logistics, employing, or construction services, we understand that your success is our success. We prioritize our clients, keeping our promises and ensuring that services are delivered as promised, on time, every time.",
+      "With four specialized companies under one umbrella, we offer a comprehensive solution to meet your needs, no matter the industry. Our team’s dedication to efficiency and precision guarantees that we won’t just meet your expectations—we will exceed them.",
+      "Trust us to put you first, because your satisfaction drives everything we do."
+    ]
+  }
 }

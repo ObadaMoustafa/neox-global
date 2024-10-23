@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import styled from 'styled-components';
 import AnimatedText from './AnimatedText';
 import { useState } from 'react';
-import { titleColor } from '../style';
+import { titleColor, titleFontSize } from '../style';
 
 const TitleContainer = styled(motion.div)`
   height: 40px;
@@ -15,12 +15,12 @@ const TitleContainer = styled(motion.div)`
   align-items: flex-start;
   border-left: 1px solid white;
   border-right: 1px solid white;
-  //^ for tablet version
+  //^ Tablet version
   @media only screen and (min-width: 450px) {
     margin: 0;
   }
 
-  //^ for computer version
+  //^ Computer version
   @media only screen and (min-width: 800px) {
   }
 `;
@@ -32,28 +32,28 @@ const titleContainerVariants = {
 
 const StyledAnimatedTitle = styled(AnimatedText)`
   color: ${titleColor};
-  font-size: 17pt;
+  font-size: ${titleFontSize.mobile};
   font-weight: 700;
 
-  //^ for tablet version
+  //^ Tablet version
   @media only screen and (min-width: 450px) {
-    font-size: 20pt;
+    font-size: ${titleFontSize.tablet};
   }
 
-  //^ for computer version
+  //^ Computer version
   @media only screen and (min-width: 800px) {
-    font-size: 25pt;
+    font-size: ${titleFontSize.pc};
   }
 `;
-function AnimatedTitle({ text }) {
+function AnimatedTitle({ text, className }) {
   //write code here
   const [showTitle, setShowTitle] = useState(false);
   const handleShowTitle = () => {
     setShowTitle(true);
-    console.log('animation completed');
   };
   return (
     <TitleContainer
+      className={className}
       variants={titleContainerVariants}
       initial="init"
       whileInView="show"

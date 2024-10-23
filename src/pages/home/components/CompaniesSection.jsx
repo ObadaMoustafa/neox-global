@@ -26,47 +26,33 @@ const CompaniesContainer = styled(motion.div)`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   gap: 50px 30px;
 
-  //^ for tablet version
+  //^ Tablet version
   @media only screen and (min-width: 450px) {
     flex-direction: row;
     flex-wrap: wrap;
   }
 
-  //^ for computer version
+  //^ Computer version
   @media only screen and (min-width: 800px) {
     font-size: 25pt;
   }
 `;
 
-const MotionCompany = motion.create(Company);
+const MotionCompany = styled(motion.create(Company))``;
 
 const companyVariants = {
-  init: { scale: 0, y: 100 },
+  init: { scale: 0, y: -100 },
   show: { scale: 1, y: 0 },
-  hover: { scale: 0.8, color: 'yellow' },
 };
 function CompaniesSection() {
   const { t } = useTranslation();
-  const companies = [
-    {
-      image:
-        'https://res.cloudinary.com/elsharbatly/image/upload/v1729610046/NEOX/Images/logo-for-global-website_ffzii4.png',
-      text: t('companies.0'),
-    },
-    {
-      image:
-        'https://res.cloudinary.com/elsharbatly/image/upload/v1729610046/NEOX/Images/cleaning_e1b1tn.png',
-      text: t('companies.1'),
-    },
-    {
-      image:
-        'https://res.cloudinary.com/elsharbatly/image/upload/v1729610046/NEOX/Images/EAS_b1cyju.png',
-      text: t('companies.2'),
-    },
-  ];
+
+  // get all companies updated automatically with chosen language
+
+  const companies = t('companies', { returnObjects: true });
 
   return (
     <ActivitiesSection>
