@@ -72,6 +72,7 @@ const VerticalImage = styled(motion.create(Image))`
 
 // * animation * \\
 const paragraphVariants = {
+  // using y:0 in pc and x:0 in mobile to prevent animation conflict when sizing the screen
   pc: {
     init: {
       opacity: 0,
@@ -113,7 +114,7 @@ function TrustedPartner() {
   const { t } = useTranslation();
   const paragraphs = t('homepage.objective.content', { returnObjects: true });
   const title = t('homepage.objective.title');
-  const { device } = useContext(WindowContext);
+  const { isMobile } = useContext(WindowContext);
   return (
     <ComponentSection>
       {/* title */}
@@ -127,7 +128,7 @@ function TrustedPartner() {
           <motion.p
             key={i}
             variants={
-              device === 'pc' ? paragraphVariants.pc : paragraphVariants.mobile
+              isMobile ? paragraphVariants.mobile : paragraphVariants.pc
             }
             initial="init"
             whileInView="show"
@@ -139,7 +140,7 @@ function TrustedPartner() {
       </ParagraphsContainer>
 
       {/* Picture */}
-      {device !== 'pc' ? (
+      {isMobile ? (
         <HorizontalImage
           src="https://res.cloudinary.com/elsharbatly/image/upload/v1729700499/NEOX/Images/business-stuff_cqovg6.png"
           alt="business photo"

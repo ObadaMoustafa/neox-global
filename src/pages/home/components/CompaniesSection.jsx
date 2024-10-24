@@ -45,37 +45,62 @@ const CompaniesContainer = styled(motion.div)`
 
 const MotionCompany = styled(motion.create(Company))``;
 
-const companyVariants = {
-  init: { scaleX: 0, y: -100 },
-  show: { scaleX: 1, y: 0 },
-  pc: {
-    0: { init: { x: -200, opacity: 0 }, show: { x: 0, opacity: 1 } },
-    1: { init: { y: 200, opacity: 0 }, show: { y: 0, opacity: 1 } },
-    2: { init: { x: 200, opacity: 0 }, show: { x: 0, opacity: 1 } },
+//* animation *\\
+const companyVariantsMobile = {
+  init: { scaleX: 0, y: -100, x: 0 },
+  show: { scaleX: 1, y: 0, x: 0 },
+};
+
+const companyVariantsPc = {
+  0: {
+    init: { x: -200, opacity: 0 },
+    show: { x: 0, opacity: 1 },
+  },
+  1: {
+    init: { y: 200, opacity: 0 },
+    show: { y: 0, opacity: 1 },
+  },
+  2: {
+    init: { x: 200, opacity: 0 },
+    show: { x: 0, opacity: 1 },
   },
 };
+
 function CompaniesSection() {
   const { t } = useTranslation();
 
   // get all companies updated automatically with chosen language
 
   const companies = t('homepage.companies.content', { returnObjects: true });
-  const { device } = useContext(WindowContext);
+  const { isMobile } = useContext(WindowContext);
   return (
     <ActivitiesSection>
       <AnimatedTitle text={t('homepage.companies.title')} />
       <CompaniesContainer>
-        {companies.map(({ image, text }, i) => (
-          <MotionCompany
-            key={i}
-            image={image}
-            text={text}
-            variants={device !== 'pc' ? companyVariants : companyVariants.pc[i]}
-            initial="init"
-            whileInView="show"
-            transition={{ duration: 0.5 }}
-          />
-        ))}
+        {/* whe made two versions here to prevent the animation conflict when sizing screen */}
+        {isMobile
+          ? companies.map(({ image, text }, i) => (
+              <MotionCompany
+                key={i}
+                image={image}
+                text={text}
+                variants={companyVariantsMobile}
+                initial="init"
+                whileInView="show"
+                transition={{ duration: 0.5 }}
+              />
+            ))
+          : companies.map(({ image, text }, i) => (
+              <MotionCompany
+                key={i + companies.length}
+                image={image}
+                text={text}
+                variants={companyVariantsPc[i]}
+                initial="init"
+                whileInView="show"
+                transition={{ duration: 0.5 }}
+              />
+            ))}
       </CompaniesContainer>
     </ActivitiesSection>
   );

@@ -7,15 +7,17 @@ const WindowContextProvider = ({ children }) => {
     else return 'pc';
   };
   const [device, setDevise] = useState(getDevice(innerWidth));
+  const [isMobile, setIsMobile] = useState(innerWidth < 800);
   useEffect(() => {
     window.addEventListener('resize', (e) => {
       setDevise(getDevice(innerWidth));
+      setIsMobile(innerWidth < 800);
     });
 
     return () => removeEventListener('resize', window);
   }, []);
 
-  const sharedValues = { device };
+  const sharedValues = { device, isMobile };
 
   return (
     <WindowContext.Provider value={sharedValues}>
