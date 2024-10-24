@@ -115,6 +115,9 @@ function TrustedPartner() {
   const paragraphs = t('homepage.objective.content', { returnObjects: true });
   const title = t('homepage.objective.title');
   const { device } = useContext(WindowContext);
+  useEffect(() => {
+    console.log(device);
+  }, [device]);
   return (
     <ComponentSection>
       {/* title */}
@@ -126,7 +129,7 @@ function TrustedPartner() {
           <motion.p
             key={i}
             variants={
-              device !== 'pc' ? paragraphVariants.mobile : paragraphVariants.pc
+              device === 'pc' ? paragraphVariants.pc : paragraphVariants.mobile
             }
             initial="init"
             whileInView="show"
