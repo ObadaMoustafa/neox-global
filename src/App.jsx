@@ -7,9 +7,6 @@ import styled from 'styled-components';
 import Footer from './components/Footer';
 import WindowContextProvider from './contexts/WindowContext';
 
-const Main = styled.main`
-  position: relative;
-`;
 function App() {
   return (
     <>

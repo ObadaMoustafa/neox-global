@@ -1,10 +1,12 @@
 import styled from 'styled-components';
 import Section from '../../../components/Section';
-import { navHeight, titleColor } from '../../../style';
+import { titleColor } from '../../../style';
 import { useTranslation } from 'react-i18next';
 import Company from './Company';
 import AnimatedTitle from '../../../components/AnimatedTitle';
 import { motion } from 'framer-motion';
+import { useContext } from 'react';
+import { WindowContext } from '../../../contexts/WindowContext';
 
 const ActivitiesSection = styled(Section)`
   display: flex;
@@ -46,6 +48,11 @@ const MotionCompany = styled(motion.create(Company))``;
 const companyVariants = {
   init: { scaleX: 0, y: -100 },
   show: { scaleX: 1, y: 0 },
+  pc: {
+    0: { init: { x: -200, opacity: 0 }, show: { x: 0, opacity: 1 } },
+    1: { init: { y: 200, opacity: 0 }, show: { y: 0, opacity: 1 } },
+    2: { init: { x: 200, opacity: 0 }, show: { x: 0, opacity: 1 } },
+  },
 };
 function CompaniesSection() {
   const { t } = useTranslation();
@@ -53,8 +60,7 @@ function CompaniesSection() {
   // get all companies updated automatically with chosen language
 
   const companies = t('homepage.companies.content', { returnObjects: true });
-  const device = window.innerWidth < 800 ? 'mobile' : 'pc';
-
+  const { device } = useContext(WindowContext);
   return (
     <ActivitiesSection>
       <AnimatedTitle text={t('homepage.companies.title')} />
@@ -64,7 +70,7 @@ function CompaniesSection() {
             key={i}
             image={image}
             text={text}
-            variants={companyVariants}
+            variants={device !== 'pc' ? companyVariants : companyVariants.pc[i]}
             initial="init"
             whileInView="show"
             transition={{ duration: 0.5 }}

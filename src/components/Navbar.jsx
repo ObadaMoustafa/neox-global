@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { bgColor, navHeight, navMenuZIndex } from '../style';
+import { navHeight, navMenuZIndex } from '../style';
 import BurgerMenu from './navbar/BurgerMenu';
 import Logo from './navbar/Logo';
 import LangSwitcher from './navbar/LangSwitcher';

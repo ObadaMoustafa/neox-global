@@ -35,4 +35,5 @@ const AnimatedText = forwardRef(({ text, className, delay, inView }, ref) => {
   );
 });
 
+AnimatedText.displayName = 'Animated Text';
 export default AnimatedText;

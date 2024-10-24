@@ -5,8 +5,9 @@ import AnimatedTitle from '../../../components/AnimatedTitle';
 import Image from '../../../components/Image';
 import { motion } from 'framer-motion';
 import { contentFontSize, textColor } from '../../../style';
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import { WindowContext } from '../../../contexts/WindowContext';
+
 const ComponentSection = styled(Section)`
   display: grid;
   grid-template-columns: repeat(1, auto);
@@ -16,6 +17,7 @@ const ComponentSection = styled(Section)`
     'p'
     'img';
   row-gap: 25px;
+  overflow: hidden;
 
   //^ Computer version
   @media only screen and (min-width: 800px) {
@@ -27,9 +29,11 @@ const ComponentSection = styled(Section)`
   }
 `;
 
-const StyledTitle = styled(AnimatedTitle)`
+const StyledTitle = styled.div`
   grid-area: title;
   margin: 0 auto;
+  display: flex;
+  align-items: center;
 
   //^Computer version
   @media only screen and (min-width: 800px) {
@@ -52,28 +56,18 @@ const ParagraphsContainer = styled.div`
   @media only screen and (min-width: 800px) {
     font-size: ${contentFontSize.pc};
     text-align: left;
+    align-items: flex-start;
   }
 `;
 
 const HorizontalImage = styled(motion.create(Image))`
   grid-area: img;
-
-  //^Computer version
-  @media only screen and (min-width: 800px) {
-    display: none;
-  }
 `;
 
 const VerticalImage = styled(motion.create(Image))`
   grid-area: img;
-  display: none;
   height: 100%;
   transform-origin: bottom;
-
-  //^Computer version
-  @media only screen and (min-width: 800px) {
-    display: block;
-  }
 `;
 
 // * animation * \\
@@ -82,20 +76,24 @@ const paragraphVariants = {
     init: {
       opacity: 0,
       x: -200,
+      y: 0,
     },
     show: {
       opacity: 1,
       x: 0,
+      y: 0,
     },
   },
   mobile: {
     init: {
       opacity: 0,
       y: 150,
+      x: 0,
     },
     show: {
       opacity: 1,
       y: 0,
+      x: 0,
     },
   },
 };
@@ -104,8 +102,9 @@ const verticalImageVariants = {
   init: { opacity: 0, x: 200 },
   show: { opacity: 1, x: 0 },
 };
+
 const horizontalImageVariants = {
-  init: { opacity: 0, y: 200 },
+  init: { opacity: 0, y: 150 },
   show: { opacity: 1, y: 0 },
 };
 
@@ -115,13 +114,12 @@ function TrustedPartner() {
   const paragraphs = t('homepage.objective.content', { returnObjects: true });
   const title = t('homepage.objective.title');
   const { device } = useContext(WindowContext);
-  useEffect(() => {
-    console.log(device);
-  }, [device]);
   return (
     <ComponentSection>
       {/* title */}
-      <StyledTitle text={title} />
+      <StyledTitle>
+        <AnimatedTitle text={title} />
+      </StyledTitle>
 
       {/* Text */}
       <ParagraphsContainer>
@@ -141,22 +139,25 @@ function TrustedPartner() {
       </ParagraphsContainer>
 
       {/* Picture */}
-      <HorizontalImage
-        src="https://res.cloudinary.com/elsharbatly/image/upload/v1729700499/NEOX/Images/business-stuff_cqovg6.png"
-        alt="business photo"
-        variants={horizontalImageVariants}
-        initial="init"
-        whileInView="show"
-        transition={{ duration: 0.9 }}
-      />
-      <VerticalImage
-        src="https://res.cloudinary.com/elsharbatly/image/upload/v1729700498/NEOX/Images/working-serious_iaflpi.png"
-        alt="business photo"
-        variants={verticalImageVariants}
-        initial="init"
-        whileInView="show"
-        transition={{ duration: 0.9 }}
-      />
+      {device !== 'pc' ? (
+        <HorizontalImage
+          src="https://res.cloudinary.com/elsharbatly/image/upload/v1729700499/NEOX/Images/business-stuff_cqovg6.png"
+          alt="business photo"
+          variants={horizontalImageVariants}
+          initial="init"
+          whileInView="show"
+          transition={{ duration: 0.9 }}
+        />
+      ) : (
+        <VerticalImage
+          src="https://res.cloudinary.com/elsharbatly/image/upload/v1729700498/NEOX/Images/working-serious_iaflpi.png"
+          alt="business photo"
+          variants={verticalImageVariants}
+          initial="init"
+          whileInView="show"
+          transition={{ duration: 0.9 }}
+        />
+      )}
     </ComponentSection>
   );
 }
