@@ -16,11 +16,13 @@ const TitleContainer = styled(motion.div)`
   border-left: 1px solid white;
   border-right: 1px solid white;
   text-transform: uppercase;
+  text-align: center;
 
   //^ Tablet version
   @media only screen and (min-width: 450px) {
     margin: 0;
     border-right: none;
+    text-align: left;
   }
 
   //^ Computer version

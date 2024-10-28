@@ -47,5 +47,22 @@
         "Vertrouw erop dat wij u op de eerste plaats zetten, want uw tevredenheid drijft alles wat wij doen."
       ]
     }
+  },
+  "about": {
+    "title": ["Over Ons", "Uitmuntendheid en Betrokkenheid in Elke Dienst"],
+    "content": [
+      {
+        "image": "https://res.cloudinary.com/elsharbatly/image/upload/v1730110321/NEOX/Images/teamwork_j17aeg.webp",
+        "text": "Onze missie is eenvoudig maar krachtig: hoogwaardige en betrouwbare diensten leveren die een echt verschil maken voor onze klanten. Met onze vier gespecialiseerde bedrijven—schoonmaak, logistiek, uitzendwerk en bouw—zijn wij verenigd in de toewijding om verwachtingen te overtreffen, op tijd te leveren en duurzame relaties op te bouwen."
+      },
+      {
+        "image": "https://res.cloudinary.com/elsharbatly/image/upload/v1730110321/NEOX/Images/personalize-needs_vsc19p.jpg",
+        "text": "In elke stap staan onze klanten centraal, waarbij wij erkennen dat uw behoeften ons werk vormgeven. Of u nu op zoek bent naar efficiënte logistieke oplossingen, een toegewijd schoonmaakteam, betrouwbare arbeidskrachten of deskundige bouwdiensten, wij hebben de ervaring en expertise om elke keer weer uitmuntende resultaten te leveren."
+      },
+      {
+        "image": "https://res.cloudinary.com/elsharbatly/image/upload/v1730110321/NEOX/Images/Hero_loyda-liikekumppani_hpghhe.jpg",
+        "text": "Als u voor ons kiest, kiest u voor een partner die zich inzet voor integriteit, kwaliteit en consistente prestaties. Wij zijn er niet alleen om een dienst te leveren; wij zijn er om uw doelen te ondersteunen, uw visie te verwezenlijken en gemoedsrust te bieden door onze betrouwbare service."
+      }
+    ]
   }
 }

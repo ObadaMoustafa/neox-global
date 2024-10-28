@@ -20,19 +20,6 @@ const StyledHeader = styled.header`
     background-color: #2e2d2d73;
   }
 
-  .feather-bottom {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 20%;
-    background: linear-gradient(
-      0deg,
-      rgba(44, 51, 57, 1) 0%,
-      rgba(255, 255, 255, 0) 100%
-    );
-  }
-
   .animated-text {
     font-size: 1rem;
     width: 100%;

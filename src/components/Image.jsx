@@ -8,11 +8,11 @@ const ImageContainer = styled.div`
     object-fit: cover;
   }
 `;
-const Image = forwardRef(({ src, alt, className }, ref) => {
+const Image = forwardRef(({ src, alt, className, fn }, ref) => {
   //write code here
 
   return (
-    <ImageContainer className={className} ref={ref}>
+    <ImageContainer className={className} ref={ref} onClick={fn}>
       <img src={src} alt={alt} />
     </ImageContainer>
   );

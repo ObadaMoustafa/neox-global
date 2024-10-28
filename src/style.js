@@ -15,6 +15,8 @@ export const navMenuZIndex = 999;
 export const xlPadding = 150;
 export const xsPadding = 20;
 
+export const imgBorderRadius = 35;
+
 // Fonts
 export const titleFontSize = { mobile: '13pt', tablet: '20pt', pc: '25pt' };
 export const contentFontSize = { mobile: '18px', pc: '30px' };

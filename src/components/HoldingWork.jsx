@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import Image from './Image';
-import gear from '../images/grey-gear.png';
 import { motion } from 'framer-motion';
 import AnimatedText from './AnimatedText';
 
@@ -34,12 +33,16 @@ function HoldingWork() {
   return (
     <DIV>
       <GearPhoto
-        src={gear}
+        src="https://res.cloudinary.com/elsharbatly/image/upload/v1730110326/NEOX/Images/grey-gear_grwhkb.png"
         variants={gearVariants}
         animate="show"
         transition={{
-          duration: 2,
+          duration: 3,
           repeat: Infinity,
+          repeatDelay: 0,
+          type: 'tween',
+          repeatType: 'loop',
+          ease: 'linear',
         }}
       />
       <AnimatedText text="I stopped working on this project until further notice" />
