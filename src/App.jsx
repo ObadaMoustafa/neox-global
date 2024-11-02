@@ -8,7 +8,7 @@ import WindowContextProvider from './contexts/WindowContext';
 import HoldingWork from './components/HoldingWork';
 
 function App() {
-  const isClosed = true;
+  const isClosed = false;
   return (
     <>
       <WindowContextProvider>

@@ -53,16 +53,16 @@ const companyVariantsMobile = {
 
 const companyVariantsPc = {
   0: {
-    init: { x: -200, opacity: 0 },
-    show: { x: 0, opacity: 1 },
+    init: { x: -100, rotate: -20, scale: 1.3, opacity: 0 },
+    show: { x: 0, rotate: 0, scale: 1, opacity: 1 },
   },
   1: {
-    init: { y: 200, opacity: 0 },
-    show: { y: 0, opacity: 1 },
+    init: { y: 100, scale: 1.3, opacity: 0 },
+    show: { y: 0, scale: 1, opacity: 1 },
   },
   2: {
-    init: { x: 200, opacity: 0 },
-    show: { x: 0, opacity: 1 },
+    init: { x: 100, rotate: 20, scale: 1.3, opacity: 0 },
+    show: { x: 0, rotate: 0, opacity: 1, scale: 1 },
   },
 };
 
@@ -98,7 +98,7 @@ function CompaniesSection() {
                 variants={companyVariantsPc[i]}
                 initial="init"
                 whileInView="show"
-                transition={{ duration: 0.5 }}
+                transition={{ duration: 0.5, ease: 'linear' }}
               />
             ))}
       </CompaniesContainer>

@@ -8,6 +8,8 @@ import Image from '../../components/Image';
 import { contentFontSize, imgBorderRadius, textColor } from '../../style';
 import { useContext } from 'react';
 import { WindowContext } from '../../contexts/WindowContext';
+import GoTop from '../../components/GoTop';
+import LookDownImage from '../../components/LookDownImage';
 
 // header of the page
 const Parallax = styled(motion.div)`
@@ -23,29 +25,25 @@ const Parallax = styled(motion.div)`
   margin: 0 auto;
 `;
 
-const LookDownImage = styled(Image)`
-  width: 45%;
-  position: absolute;
-  bottom: -15px;
+const ParallaxLookDownImage = styled(LookDownImage)`
+  bottom: -12px;
   left: 10%;
-  z-index: 3;
-  cursor: pointer;
-
-  &:hover {
-    opacity: 0.5;
+  //^ Tablet version
+  @media only screen and (min-width: 450px) {
+    bottom: -25px;
+    left: 10%;
   }
 
   //^ Computer version
   @media only screen and (min-width: 800px) {
-    width: 25%;
-    bottom: -50px;
+    bottom: -40px;
     left: 5%;
   }
 `;
-
 // about us section
 const StyledSection = styled(Section)`
   min-height: 100vh;
+  overflow-x: hidden;
 `;
 
 const AboutUsText = styled(motion.p)`
@@ -103,30 +101,20 @@ const aboutUsPCVariants = {
   show: { scaleX: 1, opacity: 1, transition: { duration: 1 } },
 };
 function About() {
-  function scrollDown() {
-    window.scrollTo(0, innerHeight);
-  }
   const { t } = useTranslation();
   const aboutUsContent = t('about.content', { returnObjects: true });
   const { isMobile } = useContext(WindowContext);
-  const aboutUsImages = [
-    'https://res.cloudinary.com/elsharbatly/image/upload/v1730110321/NEOX/Images/teamwork_j17aeg.webp',
-    'https://res.cloudinary.com/elsharbatly/image/upload/v1730110321/NEOX/Images/personalize-needs_vsc19p.jpg',
-    'https://res.cloudinary.com/elsharbatly/image/upload/v1730110321/NEOX/Images/Hero_loyda-liikekumppani_hpghhe.jpg',
-  ];
   return (
     <>
       <Loader />
       <Parallax variants={parallaxVariants} initial="init" animate="show">
-        <LookDownImage
-          src="https://res.cloudinary.com/elsharbatly/image/upload/v1730110321/NEOX/Images/look-down_srmwsu.png"
-          fn={scrollDown}
-        />
+        <ParallaxLookDownImage src="https://res.cloudinary.com/elsharbatly/image/upload/v1730110321/NEOX/Images/look-down_srmwsu.png" />
         <div className="feather-bottom"></div>
       </Parallax>
       <StyledSection>
         <AnimatedTitle text={t('about.title.0')} />
         <AnimatedTitle text={t('about.title.1')} />
+        {/* showing content with different animation variants and different images */}
         {isMobile ? (
           <>
             {aboutUsContent.map(({ text }, i) => (
@@ -165,6 +153,7 @@ function About() {
           </>
         )}
       </StyledSection>
+      <GoTop />
     </>
   );
 }

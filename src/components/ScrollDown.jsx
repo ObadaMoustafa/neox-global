@@ -14,6 +14,7 @@ const ScrollButton = styled.div`
   cursor: pointer;
   width: 35px;
   height: 45px;
+  z-index: 1500;
 
   &:hover span {
     border-left: 1px solid ${btnColor};
