@@ -1,16 +1,16 @@
 import styled from 'styled-components';
-import GoTop from '../../components/GoTop';
 import Section from '../../components/Section';
 import Map from './components/Map';
 import { motion } from 'framer-motion';
 import lookDownImage from '../../images/lookDown.png';
 import LookDownImage from '../../components/LookDownImage';
+import PageWrapper from '../../components/PageWrapper';
 
 const TheMap = styled(motion.create(Map))`
   height: 100vh;
 `;
 
-const StyledLookDown = styled(motion.create(LookDownImage))`
+const StyledLookDown = styled(LookDownImage)`
   bottom: -40px;
   right: 10%;
   //^ Tablet version
@@ -42,14 +42,12 @@ function Contacts() {
   //write code here
 
   return (
-    <>
+    <PageWrapper>
       <TheMap variants={mapVariants} initial="initial" animate="show" />
+      <StyledLookDown src={lookDownImage} alt="look down" />
 
-      <ContactsSection>
-        <StyledLookDown src={lookDownImage} alt="look down" />
-      </ContactsSection>
-      <GoTop />
-    </>
+      <ContactsSection></ContactsSection>
+    </PageWrapper>
   );
 }
 

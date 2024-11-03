@@ -6,14 +6,18 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import WindowContextProvider from './contexts/WindowContext';
 import HoldingWork from './components/HoldingWork';
+import { useState } from 'react';
 
 function App() {
-  const isClosed = true;
+  const [isClosed, setIsClosed] = useState(true);
+  const handleClose = () => {
+    setIsClosed(!isClosed);
+  };
   return (
     <>
       <WindowContextProvider>
         {isClosed ? (
-          <HoldingWork />
+          <HoldingWork fn={handleClose} />
         ) : (
           <>
             <Navbar />

@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import Loader from '../../components/Loader';
 import Section from '../../components/Section';
 import { motion } from 'framer-motion';
 import AnimatedTitle from '../../components/AnimatedTitle';
@@ -8,8 +7,8 @@ import Image from '../../components/Image';
 import { contentFontSize, imgBorderRadius, textColor } from '../../style';
 import { useContext } from 'react';
 import { WindowContext } from '../../contexts/WindowContext';
-import GoTop from '../../components/GoTop';
 import LookDownImage from '../../components/LookDownImage';
+import PageWrapper from '../../components/PageWrapper';
 
 // header of the page
 const Parallax = styled(motion.div)`
@@ -105,8 +104,7 @@ function About() {
   const aboutUsContent = t('about.content', { returnObjects: true });
   const { isMobile } = useContext(WindowContext);
   return (
-    <>
-      <Loader />
+    <PageWrapper>
       <Parallax variants={parallaxVariants} initial="init" animate="show">
         <ParallaxLookDownImage src="https://res.cloudinary.com/elsharbatly/image/upload/v1730110321/NEOX/Images/look-down_srmwsu.png" />
         <div className="feather-bottom"></div>
@@ -153,8 +151,7 @@ function About() {
           </>
         )}
       </StyledSection>
-      <GoTop />
-    </>
+    </PageWrapper>
   );
 }
 

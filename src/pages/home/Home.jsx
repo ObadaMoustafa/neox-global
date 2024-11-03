@@ -1,20 +1,17 @@
 import Header from './components/Header';
-import Loader from '../../components/Loader';
-import GoTop from '../../components/GoTop';
 import CompaniesSection from './components/CompaniesSection';
 import TrustedPartner from './components/TrustedPartner';
+import PageWrapper from '../../components/PageWrapper';
 
 function Home() {
   //write code here
 
   return (
-    <>
-      <Loader />
+    <PageWrapper>
       <Header />
       <CompaniesSection />
       <TrustedPartner />
-      <GoTop />
-    </>
+    </PageWrapper>
   );
 }
 

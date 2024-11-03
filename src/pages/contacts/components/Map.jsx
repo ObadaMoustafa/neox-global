@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import markerImage from '../../../images/location-marker.png';
 import Image from '../../../components/Image';
+import { Link } from 'react-router-dom';
 
 const MapWrapper = styled.div`
   width: 100%;
@@ -43,42 +44,52 @@ const markerVariants = {
   },
 };
 
-const Map = forwardRef(({ children, className }, ref) => {
-  const position = [52.505499986615526, 6.090946035575811]; // Coordinates for "fossemaheerd 38, 9737KG, Groningen"
-  const address = 'Stationsgebouw Zwolle, Stationsplein 17, 8011 CW Zwolle';
-  const mapsLink = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
-    address
-  )}`;
+const Map = forwardRef(
+  (
+    {
+      children,
+      className,
+      position = [52.505499986615526, 6.090946035575811],
+      address = 'Stationsgebouw Zwolle, Stationsplein 17, 8011 CW Zwolle',
+    },
+    ref
+  ) => {
+    const mapsLink = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
+      address
+    )}`;
 
-  return (
-    <MapWrapper ref={ref} className={className}>
-      <MapContainer
-        center={position}
-        zoom={50}
-        style={{ height: '110%', width: '100%' }}
-        dragging={false}
-        touchZoom={false}
-        doubleClickZoom={false}
-        scrollWheelZoom={false}
-        zoomControl={false}
-        keyboard={false}
-      >
-        <TileLayer
-          url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
-          attribution='&copy; <a href="https://carto.com/attributions">CARTO</a>'
-        />
-      </MapContainer>
-      <MarkerContainer>
-        <Marker
-          src={markerImage}
-          variants={markerVariants}
-          initial="initial"
-          animate="animate"
-        />
-      </MarkerContainer>
-      {children}
-    </MapWrapper>
-  );
-});
+    return (
+      <MapWrapper ref={ref} className={className}>
+        <MapContainer
+          center={position}
+          zoom={50}
+          style={{ height: '110%', width: '100%' }}
+          dragging={false}
+          touchZoom={false}
+          doubleClickZoom={false}
+          scrollWheelZoom={false}
+          zoomControl={false}
+          keyboard={false}
+        >
+          <TileLayer
+            url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
+            attribution='&copy; <a href="https://carto.com/attributions">CARTO</a>'
+          />
+        </MapContainer>
+        <MarkerContainer>
+          <Link to={mapsLink} target="_blank" rel="noopener noreferrer">
+            <Marker
+              src={markerImage}
+              variants={markerVariants}
+              initial="initial"
+              animate="animate"
+            />
+          </Link>
+        </MarkerContainer>
+        {children}
+      </MapWrapper>
+    );
+  }
+);
 
 export default Map;

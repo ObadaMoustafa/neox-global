@@ -27,12 +27,13 @@ const gearVariants = {
   show: { opacity: 1, rotate: 360 },
 };
 
-function HoldingWork() {
+function HoldingWork({ fn }) {
   //write code here
 
   return (
     <DIV>
       <GearPhoto
+        fn={fn}
         src="https://res.cloudinary.com/elsharbatly/image/upload/v1730110326/NEOX/Images/grey-gear_grwhkb.png"
         variants={gearVariants}
         animate="show"
