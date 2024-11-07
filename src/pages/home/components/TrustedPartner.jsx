@@ -115,6 +115,7 @@ function TrustedPartner() {
   const paragraphs = t('homepage.objective.content', { returnObjects: true });
   const title = t('homepage.objective.title');
   const { isMobile } = useContext(WindowContext);
+
   return (
     <ComponentSection>
       {/* title */}
@@ -133,6 +134,7 @@ function TrustedPartner() {
             initial="init"
             whileInView="show"
             transition={{ duration: 0.9 }}
+            style={{ width: '100%' }}
           >
             {text}
           </motion.p>
