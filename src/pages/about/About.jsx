@@ -42,7 +42,7 @@ const ParallaxLookDownImage = styled(LookDownImage)`
 // about us section
 const StyledSection = styled(Section)`
   min-height: 100vh;
-  overflow-x: hidden;
+  overflow: hidden;
 `;
 
 const AboutUsText = styled(motion.p)`

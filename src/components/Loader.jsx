@@ -85,7 +85,7 @@ function Loader() {
     return () => clearTimeout(stopLoading);
   }, []);
 
-  const duration = {
+  const transition = {
     transition: { duration: 2, type: 'tween' },
   };
   const LoaderSlices = [];
@@ -94,7 +94,7 @@ function Loader() {
     LoaderSlices.push(
       <LoaderSlice
         key={i}
-        exit={{ y: isEven ? '105vh' : '-105vh', ...duration }}
+        exit={{ y: isEven ? '105vh' : '-105vh', ...transition }}
       />
     );
   }
@@ -109,19 +109,19 @@ function Loader() {
                 src={NeoxLogoRight}
                 alt="company logo"
                 className="right"
-                exit={{ x: '200vw', scale: 3, opacity: 0, ...duration }}
+                exit={{ x: '200vw', scale: 3, opacity: 0, ...transition }}
               />
               <motion.img
                 src={NeoxLogoLeft}
                 alt="company logo"
                 className="left"
-                exit={{ x: '-200vw', scale: 3, opacity: 0, ...duration }}
+                exit={{ x: '-200vw', scale: 3, opacity: 0, ...transition }}
               />
               <motion.img
                 src={NeoxLogoBottom}
                 alt="company logo"
                 className="bottom"
-                exit={{ y: '200vh', scale: 3, opacity: 0, ...duration }}
+                exit={{ y: '200vh', scale: 3, opacity: 0, ...transition }}
               />
             </div>
           </VisualContainer>

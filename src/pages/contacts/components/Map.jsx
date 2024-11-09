@@ -3,10 +3,11 @@ import { MapContainer, TileLayer } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import markerImage from '../../../images/location-marker.png';
 import Image from '../../../components/Image';
 import { Link } from 'react-router-dom';
 
+const markerImage =
+  'https://res.cloudinary.com/elsharbatly/image/upload/v1731131811/NEOX/Images/location-marker_y6zt0f.png';
 const MapWrapper = styled.div`
   width: 100%;
   height: 80vh;
@@ -34,7 +35,7 @@ const markerVariants = {
   initial: { y: 0, scaleX: 1, scaleY: 1 },
   animate: {
     y: 10,
-    scaleX: [1, 1, 1.1, 1.3],
+    scaleX: [1, 1, 1.1],
     scaleY: [1, 1, 0.9, 0.8],
     transition: {
       repeat: Infinity,

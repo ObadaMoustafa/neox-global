@@ -30,6 +30,7 @@ const ImageContainer = styled.div`
     color: ${textColor};
     position: absolute;
     bottom: -15px;
+    text-transform: uppercase;
   }
 `;
 const Company = forwardRef(({ image, text }, ref) => {

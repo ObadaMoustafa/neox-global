@@ -2,9 +2,11 @@ import styled from 'styled-components';
 import Section from '../../components/Section';
 import Map from './components/Map';
 import { motion } from 'framer-motion';
-import lookDownImage from '../../images/lookDown.png';
 import LookDownImage from '../../components/LookDownImage';
 import PageWrapper from '../../components/PageWrapper';
+
+const lookDownImage =
+  'https://res.cloudinary.com/elsharbatly/image/upload/v1731131811/NEOX/Images/lookDown_xz1uoo.png';
 
 const TheMap = styled(motion.create(Map))`
   height: 100vh;
@@ -35,7 +37,7 @@ const mapVariants = {
   },
   show: {
     opacity: 1,
-    transition: { duration: 0.5 },
+    transition: { duration: 1, delay: 2 },
   },
 };
 function Contacts() {
