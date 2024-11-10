@@ -50,11 +50,13 @@ const StyledAnimatedTitle = styled(AnimatedText)`
     font-size: ${titleFontSize.pc};
   }
 `;
-function AnimatedTitle({ text, className }) {
+function AnimatedTitle({ text, className, delay }) {
   //write code here
   const [showTitle, setShowTitle] = useState(false);
   const handleShowTitle = () => {
-    setShowTitle(true);
+    if (delay)
+      Promise.resolve(setTimeout(() => setShowTitle(true), delay * 1000));
+    else setShowTitle(true);
   };
   return (
     <TitleContainer

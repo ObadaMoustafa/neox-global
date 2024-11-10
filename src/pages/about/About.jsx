@@ -9,21 +9,9 @@ import { useContext } from 'react';
 import { WindowContext } from '../../contexts/WindowContext';
 import LookDownImage from '../../components/LookDownImage';
 import PageWrapper from '../../components/PageWrapper';
+import Parallax from '../../components/Parallax';
 
 // header of the page
-const Parallax = styled(motion.div)`
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  background-image: url('https://res.cloudinary.com/elsharbatly/image/upload/v1730110321/NEOX/Images/Business_with_ESA_pillars_bkcu4m.jpg');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-attachment: fixed;
-  background-size: cover;
-  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
-  margin: 0 auto;
-`;
-
 const ParallaxLookDownImage = styled(LookDownImage)`
   bottom: -12px;
   left: 10%;
@@ -105,7 +93,7 @@ function About() {
   const { isMobile } = useContext(WindowContext);
   return (
     <PageWrapper>
-      <Parallax variants={parallaxVariants} initial="init" animate="show">
+      <Parallax backgroundSrc="https://res.cloudinary.com/elsharbatly/image/upload/v1730110321/NEOX/Images/Business_with_ESA_pillars_bkcu4m.jpg">
         <ParallaxLookDownImage src="https://res.cloudinary.com/elsharbatly/image/upload/v1730110321/NEOX/Images/look-down_srmwsu.png" />
         <div className="feather-bottom"></div>
       </Parallax>
