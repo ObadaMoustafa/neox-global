@@ -17,7 +17,6 @@ const FooterContainer = styled(motion.create(Section))`
   padding-top: ${xsPadding}px;
   padding-bottom: ${xsPadding}px;
   margin-top: 50px;
-  gap: 30px;
   // shadow
   -webkit-box-shadow: 0px -10px 30px -11px rgba(244, 179, 53, 1);
   -moz-box-shadow: 0px -10px 30px -11px rgba(244, 179, 53, 1);
@@ -43,7 +42,8 @@ const FooterContainer = styled(motion.create(Section))`
     grid-template-rows: auto;
     border-top-right-radius: 50%;
     border-top-left-radius: 50%;
-
+    padding-left: 20%;
+    padding-right: 20%;
     > .footer-block:last-of-type {
       grid-column: span 1;
     }
@@ -67,6 +67,7 @@ const StyledFooterColumn = styled(FooterBlock)`
   //^ Computer version
   @media only screen and (min-width: 800px) {
     padding: 50px 0;
+    justify-content: center;
   }
 `;
 

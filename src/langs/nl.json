@@ -71,17 +71,17 @@
       {
         "iconClasses": "fa-solid fa-map-location-dot",
         "title": "Stationsplein 17, 8011 CW Zwolle",
-        "href": "www.google.com"
+        "href": "Stationsplein 17, 8011 CW Zwolle"
       },
       {
         "iconClasses": "fa-solid fa-phone",
-        "title": "0698255470",
-        "href": "www.google.com"
+        "title": "0647786691",
+        "href": "tel:+31647786691"
       },
       {
         "iconClasses": "fa-solid fa-envelope",
         "title": "info@neox.com",
-        "href": "www.google.com"
+        "href": "mailto:info@neox.com"
       }
     ]
   }
