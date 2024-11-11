@@ -187,11 +187,7 @@ function Contacts() {
 
             return (
               <ContactMethod key={index} style={{ fontSize: '40px' }}>
-                <LinkedTitle
-                  to={isMap ? mapsLink : href}
-                  target="_blank"
-                  rel="noreferrer"
-                >
+                <LinkedTitle to={isMap ? mapsLink : href} rel="noreferrer">
                   <i className={iconClasses}></i>
                   <h2>{title}</h2>
                 </LinkedTitle>
