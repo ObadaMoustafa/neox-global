@@ -67,6 +67,22 @@
   },
   "contacts": {
     "title": "Contacteer Ons",
-    "content": ["0654-998-243", "global@neox.com"]
+    "content": [
+      {
+        "iconClasses": "fa-solid fa-map-location-dot",
+        "title": "Stationsplein 17, 8011 CW Zwolle",
+        "href": "www.google.com"
+      },
+      {
+        "iconClasses": "fa-solid fa-phone",
+        "title": "0698255470",
+        "href": "www.google.com"
+      },
+      {
+        "iconClasses": "fa-solid fa-envelope",
+        "title": "info@neox.com",
+        "href": "www.google.com"
+      }
+    ]
   }
 }

@@ -9,8 +9,6 @@ import { Link } from 'react-router-dom';
 const markerImage =
   'https://res.cloudinary.com/elsharbatly/image/upload/v1731131811/NEOX/Images/location-marker_y6zt0f.png';
 const MapWrapper = styled.div`
-  width: 100%;
-  height: 80vh;
   overflow: hidden;
   position: relative;
 `;
@@ -21,7 +19,7 @@ const MarkerContainer = styled.div`
   height: 100%;
   left: 0;
   top: 0;
-  z-index: 1500;
+  z-index: 900;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -32,15 +30,16 @@ const Marker = styled(motion.create(Image))`
 `;
 // Animations
 const markerVariants = {
-  initial: { y: 0, scaleX: 1, scaleY: 1 },
+  initial: { y: -10, scaleX: 1, scaleY: 1 },
   animate: {
-    y: 10,
+    y: 0,
     scaleX: [1, 1, 1.1],
-    scaleY: [1, 1, 0.9, 0.8],
+    scaleY: [1, 1, 0.9, 0.9],
     transition: {
       repeat: Infinity,
       repeatType: 'reverse',
       duration: 1,
+      delay: 2,
     },
   },
 };
@@ -51,7 +50,7 @@ const Map = forwardRef(
       children,
       className,
       position = [52.505499986615526, 6.090946035575811],
-      address = 'Stationsgebouw Zwolle, Stationsplein 17, 8011 CW Zwolle',
+      address = 'Stationsplein 17, 8011 CW Zwolle',
     },
     ref
   ) => {
@@ -87,7 +86,7 @@ const Map = forwardRef(
             />
           </Link>
         </MarkerContainer>
-        {children}
+        {children}sadfasdf
       </MapWrapper>
     );
   }

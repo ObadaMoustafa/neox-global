@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import LookDownImage from '../../components/LookDownImage';
 import PageWrapper from '../../components/PageWrapper';
 import contactsImage from '../../images/contacts.png';
-import { navHeight } from '../../style';
+import { contentFontSize, navHeight, titleColor } from '../../style';
 import Parallax from '../../components/Parallax';
 import AnimatedTitle from '../../components/AnimatedTitle';
 import { useTranslation } from 'react-i18next';
@@ -32,7 +32,8 @@ const Header = styled(Parallax)`
   }
 `;
 const TheMap = styled(motion.create(Map))`
-  height: 100%;
+  height: 350px;
+  width: 100vw;
 `;
 
 const StyledLookDown = styled(LookDownImage)`
@@ -55,7 +56,6 @@ const StyledLookDown = styled(LookDownImage)`
 const ContactsSection = styled(Section)`
   margin-top: 30px;
   padding-top: 0;
-  min-height: 100vh;
   position: relative;
 
   //^ Computer version
@@ -63,19 +63,51 @@ const ContactsSection = styled(Section)`
     padding-top: 50px;
   }
 `;
+const ContactMethodsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  width: '100%';
+  margin-top: 20px;
+`;
+
+const ContactMethod = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+`;
+
+const MethodTitleContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  font-size: ${contentFontSize.mobile};
+  font-weight: 400;
+  text-align: center;
+  color: ${titleColor};
+`;
 
 const mapVariants = {
   initial: {
     opacity: 0,
+    width: 0,
   },
   show: {
+    width: '100vw',
     opacity: 1,
-    transition: { duration: 1, delay: 2 },
+    transition: { duration: 1 },
   },
 };
 function Contacts() {
   //write code here
   const { t } = useTranslation();
+  const contactMethods = t('contacts.content', { returnObjects: true });
   return (
     <PageWrapper>
       <Header backgroundSrc={contactsImage}>
@@ -84,6 +116,25 @@ function Contacts() {
       </Header>
       <ContactsSection>
         <AnimatedTitle text={t('contacts.title')} delay={2} />
+
+        {/* contact methods */}
+        <ContactMethodsContainer>
+          {contactMethods.map(({ iconClasses, title, href }, index) => (
+            <ContactMethod key={index} style={{ fontSize: '40px' }}>
+              <MethodTitleContainer>
+                <i className={iconClasses}></i>
+                <p>{title}</p>
+              </MethodTitleContainer>
+              {iconClasses.includes('location') && (
+                <TheMap
+                  variants={mapVariants}
+                  initial="initial"
+                  whileInView="show"
+                />
+              )}
+            </ContactMethod>
+          ))}
+        </ContactMethodsContainer>
       </ContactsSection>
     </PageWrapper>
   );
