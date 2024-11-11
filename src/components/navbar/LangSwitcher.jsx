@@ -37,7 +37,9 @@ const switchAnimation = {
 function LangSwitcher() {
   //write code here
   const { i18n } = useTranslation();
-  const [isEnglish, setIsEnglish] = useState(i18n.language === 'en');
+  // get the current language from i18n npm
+
+  const [isEnglish, setIsEnglish] = useState(i18n.language[0] === 'en');
 
   const changeLang = () => {
     i18n.changeLanguage(isEnglish ? 'nl' : 'en');

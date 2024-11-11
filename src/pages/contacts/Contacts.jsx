@@ -4,7 +4,6 @@ import Map from './components/Map';
 import { motion } from 'framer-motion';
 import LookDownImage from '../../components/LookDownImage';
 import PageWrapper from '../../components/PageWrapper';
-import contactsImage from '../../images/contacts.png';
 import { btnColor, contentFontSize, navHeight, titleColor } from '../../style';
 import Parallax from '../../components/Parallax';
 import AnimatedTitle from '../../components/AnimatedTitle';
@@ -171,7 +170,7 @@ function Contacts() {
   const contactMethods = t('contacts.content', { returnObjects: true });
   return (
     <PageWrapper>
-      <Header backgroundSrc={contactsImage}>
+      <Header backgroundSrc="https://res.cloudinary.com/elsharbatly/image/upload/v1731354425/NEOX/Images/contacts_blsrez.png">
         <StyledLookDown src={lookDownImage} alt="look down" />
       </Header>
       <ContactsSection>
