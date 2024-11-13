@@ -3,10 +3,11 @@ import FooterBlock from './footer/FooterBlock';
 import FooterContent from './footer/FooterContent';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import { xsPadding } from '../style';
+import { footerHeight, xsPadding } from '../style';
 import Section from './Section';
 
 const FooterContainer = styled(motion.create(Section))`
+  height: ${footerHeight.mobile}px;
   display: grid;
   grid-template-columns: 1fr;
   gap: 10px;
@@ -16,7 +17,6 @@ const FooterContainer = styled(motion.create(Section))`
   overflow: hidden;
   padding-top: ${xsPadding}px;
   padding-bottom: ${xsPadding}px;
-  margin-top: 50px;
   // shadow
   -webkit-box-shadow: 0px -10px 30px -11px rgba(244, 179, 53, 1);
   -moz-box-shadow: 0px -10px 30px -11px rgba(244, 179, 53, 1);
@@ -24,6 +24,7 @@ const FooterContainer = styled(motion.create(Section))`
 
   //^ Tablet version
   @media only screen and (min-width: 450px) {
+    height: ${footerHeight.tablet}px;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto;
 
@@ -38,6 +39,7 @@ const FooterContainer = styled(motion.create(Section))`
 
   //^ Computer version
   @media only screen and (min-width: 800px) {
+    height: ${footerHeight.pc}px;
     grid-template-columns: 1fr 1fr 1fr; /* Three columns Computer version */
     grid-template-rows: auto;
     border-top-right-radius: 50%;

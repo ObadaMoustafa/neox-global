@@ -27,7 +27,7 @@ const Header = styled(Parallax)`
   height: 40vh;
   background-repeat: no-repeat;
   background-size: 80%;
-  background-position: center ${navHeight - navHeight / 2}px;
+  background-position: center ${navHeight - navHeight * 0.2}px;
   box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
 
   //^ Tablet version
@@ -78,7 +78,7 @@ const ContactMethodsContainer = styled.div`
   align-items: center;
   gap: 30px;
   width: 100%;
-  margin-top: 35px;
+  margin: 35px auto;
   > :first-child {
     order: -2;
   }
@@ -103,20 +103,8 @@ const ContactMethodsContainer = styled.div`
 `;
 
 // contact methods
-const ContactMethod = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 30px;
 
-  //^ Computer version
-  @media only screen and (min-width: 800px) {
-    align-items: flex-start;
-  }
-`;
-
-const StyledFlipButton = styled(motion.create(FlipButton2))`
+const FlipContactMethodButton = styled(motion.create(FlipButton2))`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -216,7 +204,7 @@ function Contacts() {
         {/* contact methods */}
         <ContactMethodsContainer>
           {contactMethods.map(({ iconClasses, title, href }, index) => (
-            <StyledFlipButton key={index} href={href}>
+            <FlipContactMethodButton key={index} href={href}>
               <motion.i
                 className={iconClasses}
                 variants={contactMethodsVariants.logo}
@@ -230,7 +218,7 @@ function Contacts() {
               >
                 {title}
               </motion.h2>
-            </StyledFlipButton>
+            </FlipContactMethodButton>
           ))}
           <TheMap
             key={44}

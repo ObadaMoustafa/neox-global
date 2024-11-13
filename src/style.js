@@ -17,6 +17,8 @@ export const xsPadding = 20;
 
 export const imgBorderRadius = 35;
 
+export const footerHeight = { mobile: 450, tablet: 300, pc: 250 };
+
 // Fonts
 export const titleFontSize = { mobile: '13pt', tablet: '20pt', pc: '25pt' };
 export const contentFontSize = { mobile: '18px', pc: '30px' };

@@ -6,6 +6,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import WindowContextProvider from './contexts/WindowContext';
 import Section from './components/Section';
+import NotFound from './pages/not-found/NotFound';
 
 function App() {
   return (
@@ -16,14 +17,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/contacts" element={<Contacts />} />
-          <Route
-            path="/*"
-            element={
-              <Section>
-                <h1> 404 page not found</h1>
-              </Section>
-            }
-          />
+          <Route path="/*" element={<NotFound />} />
         </Routes>
         <Footer />
       </WindowContextProvider>
