@@ -105,7 +105,7 @@ function Header() {
       <Video autoPlay muted loop ref={videoRef}>
         <source
           type="video/mp4"
-          src="https://res.cloudinary.com/elsharbatly/video/upload/v1729064138/NEOX/cleaning-promo-1_upbvrj.mp4"
+          src="https://res.cloudinary.com/elsharbatly/video/upload/v1731532416/NEOX/3249453-uhd_2560_1440_25fps_urohib.mp4"
         />
       </Video>
       <div className="dark-layer"></div>
