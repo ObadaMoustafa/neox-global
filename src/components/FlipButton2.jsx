@@ -1,15 +1,15 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { forwardRef, useState } from 'react';
 import styled from 'styled-components';
 import { titleColor } from '../style';
 
 const variants = {
   init: { opacity: 0, y: 100 },
   view: { opacity: 1, y: 0 },
+  exit: { opacity: 0 },
 };
 
-const RouterLink = styled(motion.create(Link))`
+const Link = styled(motion.a)`
   width: 'fit-content';
   font-size: '1.5rem';
   overflow: 'hidden';
@@ -22,33 +22,36 @@ const RouterLink = styled(motion.create(Link))`
     color: ${titleColor};
   }
 `;
-function FlipButton2({ children, href }) {
-  //write code here
+
+const FlipButton2 = forwardRef(({ children, href, className }, ref) => {
   const content = [children, children];
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const handleHover = () => setCurrentIndex(1);
   const handleLeave = () => setCurrentIndex(0);
   return (
-    <RouterLink
+    <Link
       onMouseEnter={handleHover}
       onMouseLeave={handleLeave}
-      to={href}
+      href={href}
       rel="noopener noreferrer"
+      ref={ref}
     >
       <AnimatePresence mode="wait">
-        <motion.h4
+        <motion.div
           key={currentIndex}
+          className={className}
           variants={variants}
           initial="init"
           animate="view"
-          transition={{ duration: 0.3 }}
+          exit="exit"
+          transition={{ duration: 0.15 }}
         >
           {content[currentIndex]}
-        </motion.h4>
+        </motion.div>
       </AnimatePresence>
-    </RouterLink>
+    </Link>
   );
-}
+});
 
 export default FlipButton2;

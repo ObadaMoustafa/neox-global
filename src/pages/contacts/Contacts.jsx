@@ -4,12 +4,10 @@ import Map from './components/Map';
 import { motion } from 'framer-motion';
 import LookDownImage from '../../components/LookDownImage';
 import PageWrapper from '../../components/PageWrapper';
-import { btnColor, contentFontSize, navHeight, titleColor } from '../../style';
+import { btnColor, contentFontSize, navHeight } from '../../style';
 import Parallax from '../../components/Parallax';
 import AnimatedTitle from '../../components/AnimatedTitle';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
-import FlipButton from '../../components/bottuns/FlipButton';
 import FlipButton2 from '../../components/FlipButton2';
 
 const lookDownImage =
@@ -93,11 +91,8 @@ const ContactMethodsContainer = styled.div`
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    gap: 100px;
+    gap: 40px;
     margin-top: 100px;
-    > :first-child {
-      width: 100%;
-    }
   }
 `;
 
@@ -115,7 +110,7 @@ const ContactMethod = styled.div`
   }
 `;
 
-const WholeTitle = styled.div`
+const StyledFlipButton = styled(motion.create(FlipButton2))`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -126,7 +121,7 @@ const WholeTitle = styled.div`
 
   h2 {
     font-size: inherit;
-    color: ${btnColor};
+    color: inherit;
     font-weight: 400;
     text-align: center;
   }
@@ -176,6 +171,24 @@ const mapVariants = {
     transition: { duration: 1 },
   },
 };
+
+const contactMethodsVariants = {
+  logo: {
+    initial: { x: -5 },
+    show: { x: 0, transition: { duration: 0.5 } },
+  },
+  title: {
+    initial: {
+      opacity: 0,
+      y: 20,
+    },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5 },
+    },
+  },
+};
 function Contacts() {
   //write code here
   const { t } = useTranslation();
@@ -189,21 +202,23 @@ function Contacts() {
         <AnimatedTitle text={t('contacts.title')} delay={2} />
         {/* contact methods */}
         <ContactMethodsContainer>
-          {contactMethods.map(({ iconClasses, title, href }, index) => {
-            const isMap = iconClasses.includes('location');
-            const mapsLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-              href
-            )}`;
-
-            return (
-              <FlipButton2 key={index} href={isMap ? mapsLink : href}>
-                <WholeTitle>
-                  <i className={iconClasses}></i>
-                  <h2>{title}</h2>
-                </WholeTitle>
-              </FlipButton2>
-            );
-          })}
+          {contactMethods.map(({ iconClasses, title, href }, index) => (
+            <StyledFlipButton key={index} href={href}>
+              <motion.i
+                className={iconClasses}
+                variants={contactMethodsVariants.logo}
+                initial="initial"
+                whileInView="show"
+              ></motion.i>
+              <motion.h2
+                variants={contactMethodsVariants.title}
+                initial="initial"
+                whileInView="show"
+              >
+                {title}
+              </motion.h2>
+            </StyledFlipButton>
+          ))}
           <TheMap
             key={44}
             variants={mapVariants}

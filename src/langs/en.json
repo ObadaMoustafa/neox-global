@@ -71,7 +71,7 @@
       {
         "iconClasses": "fa-solid fa-map-location-dot",
         "title": "Stationsplein 17, 8011 CW Zwolle",
-        "href": "Stationsplein 17, 8011 CW Zwolle"
+        "href": "https://www.google.com/maps/search/?api=1&query=Stationsplein%2017%2C%208011%20CW%20Zwolle"
       },
       {
         "iconClasses": "fa-solid fa-phone",
