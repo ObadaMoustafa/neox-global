@@ -39,7 +39,7 @@ function LangSwitcher() {
   const { i18n } = useTranslation();
   // get the current language from i18n npm
 
-  const [isEnglish, setIsEnglish] = useState(i18n.language[0] === 'en');
+  const [isEnglish, setIsEnglish] = useState(i18n.resolvedLanguage === 'en');
 
   const changeLang = () => {
     i18n.changeLanguage(isEnglish ? 'nl' : 'en');

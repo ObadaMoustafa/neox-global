@@ -1,10 +1,18 @@
+import { useContext, useEffect, useState } from 'react';
+import { WindowContext } from '../../contexts/WindowContext';
 import styled from 'styled-components';
 import Section from '../../components/Section';
 import Map from './components/Map';
 import { motion } from 'framer-motion';
 import LookDownImage from '../../components/LookDownImage';
 import PageWrapper from '../../components/PageWrapper';
-import { btnColor, contentFontSize, navHeight } from '../../style';
+import {
+  btnColor,
+  contentFontSize,
+  navHeight,
+  xlPadding,
+  xsPadding,
+} from '../../style';
 import Parallax from '../../components/Parallax';
 import AnimatedTitle from '../../components/AnimatedTitle';
 import { useTranslation } from 'react-i18next';
@@ -74,21 +82,19 @@ const ContactMethodsContainer = styled.div`
   > :first-child {
     order: -2;
   }
+
+  /* last child is the map */
   > :last-child {
-    border: 1px solid ${btnColor};
     order: -1;
   }
 
   //^ Tablet version
   @media only screen and (min-width: 450px) {
-    flex-direction: row;
-    flex-wrap: wrap;
     gap: 50px;
   }
 
   //^ Computer version
   @media only screen and (min-width: 800px) {
-    flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
     gap: 40px;
@@ -140,8 +146,6 @@ const StyledFlipButton = styled(motion.create(FlipButton2))`
 const TheMap = styled(motion.create(Map))`
   height: 350px;
   width: 100vw;
-  align-self: center;
-
   transform-origin: center center;
 
   //^ Tablet version
@@ -151,22 +155,21 @@ const TheMap = styled(motion.create(Map))`
 
   //^ Computer version
   @media only screen and (min-width: 800px) {
-    height: 600px;
-    width: 100%;
-    border-radius: 50px;
+    height: 55vh;
+    margin-left: -${xlPadding}px;
   }
 `;
 
 /* End of styled components */
 
 //? animations
-const mapVariants = {
+const mapVariant = {
   initial: {
     opacity: 0,
     width: 0,
   },
   show: {
-    width: '100%',
+    width: '100vw',
     opacity: 1,
     transition: { duration: 1 },
   },
@@ -193,6 +196,16 @@ function Contacts() {
   //write code here
   const { t } = useTranslation();
   const contactMethods = t('contacts.content', { returnObjects: true });
+  const { isMobile } = useContext(WindowContext);
+  const [mapVariants, setMapVariants] = useState(mapVariant);
+  /*   useEffect(() => {
+    console.log(isMobile);
+    mapVariant.show.width = isMobile ? '100vw' : '100%';
+    console.log(mapVariant);
+
+    setMapVariants(mapVariant);
+  }, [isMobile]); */
+
   return (
     <PageWrapper>
       <Header backgroundSrc="https://res.cloudinary.com/elsharbatly/image/upload/v1731354425/NEOX/Images/contacts_blsrez.png">

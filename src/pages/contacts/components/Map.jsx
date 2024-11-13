@@ -9,7 +9,8 @@ import { Link } from 'react-router-dom';
 const markerImage =
   'https://res.cloudinary.com/elsharbatly/image/upload/v1731131811/NEOX/Images/location-marker_y6zt0f.png';
 const MapWrapper = styled.div`
-  overflow: hidden;
+  /* overflow: hidden; */
+  overflow-y: hidden;
   position: relative;
 `;
 

@@ -10,12 +10,12 @@ const variants = {
 };
 
 const Link = styled(motion.a)`
-  width: 'fit-content';
-  font-size: '1.5rem';
-  overflow: 'hidden';
-  background-color: 'transparent';
-  padding: '10px 20px';
-  cursor: 'pointer';
+  width: fit-content;
+  font-size: 1.5rem;
+  overflow: hidden;
+  background-color: transparent;
+  padding: 10px 20px;
+  cursor: pointer;
   overflow: hidden;
 
   &:hover * {
@@ -45,7 +45,7 @@ const FlipButton2 = forwardRef(({ children, href, className }, ref) => {
           initial="init"
           animate="view"
           exit="exit"
-          transition={{ duration: 0.15 }}
+          transition={{ duration: 0.1 }}
         >
           {content[currentIndex]}
         </motion.div>
