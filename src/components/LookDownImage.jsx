@@ -1,6 +1,7 @@
 // To be a reusable component, you need to change the bottom , left and right properties from where you gonna use it.
 import styled from 'styled-components';
 import Image from './Image';
+import { navHeight } from '../style';
 
 const LookDownImageElement = styled(Image)`
   width: 160px;
@@ -24,7 +25,7 @@ const LookDownImageElement = styled(Image)`
 `;
 
 function scrollDown() {
-  window.scrollTo(0, innerHeight);
+  window.scrollTo(0, innerHeight - navHeight);
 }
 
 function LookDownImage({ src, alt, className }) {

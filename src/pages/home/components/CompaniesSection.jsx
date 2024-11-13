@@ -4,7 +4,7 @@ import { titleColor } from '../../../style';
 import { useTranslation } from 'react-i18next';
 import Company from './Company';
 import AnimatedTitle from '../../../components/AnimatedTitle';
-import { motion } from 'framer-motion';
+import { motion, spring } from 'framer-motion';
 import { useContext } from 'react';
 import { WindowContext } from '../../../contexts/WindowContext';
 
@@ -23,7 +23,7 @@ const ActivitiesSection = styled(Section)`
   }
 `;
 
-const CompaniesContainer = styled(motion.div)`
+const CompaniesContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -43,7 +43,7 @@ const CompaniesContainer = styled(motion.div)`
   }
 `;
 
-const MotionCompany = styled(motion.create(Company))``;
+const MotionCompany = motion.create(Company);
 
 //* animation *\\
 const companyVariantsMobile = {
@@ -51,18 +51,41 @@ const companyVariantsMobile = {
   show: { scaleX: 1, y: 0, x: 0 },
 };
 
+const transition = {
+  duration: 0.5,
+  ease: 'linear',
+  type: 'spring',
+  stiffness: 100,
+  damping: 10,
+};
+
+const hover = {
+  in: {
+    scale: 0.9,
+    color: titleColor,
+    transition: { duration: 0.1 },
+  },
+  out: {
+    scale: 1,
+    transition: { scale: { duration: 0.1 } },
+  },
+};
+
 const companyVariantsPc = {
   0: {
-    init: { x: -100, rotate: -20, scale: 1.3, opacity: 0 },
-    show: { x: 0, rotate: 0, scale: 1, opacity: 1 },
+    init: { opacity: 0, x: -200 },
+    show: { opacity: 1, x: 0 },
+    hover,
   },
   1: {
-    init: { y: 100, scale: 1.3, opacity: 0 },
-    show: { y: 0, scale: 1, opacity: 1 },
+    init: { opacity: 0, scale: 0 },
+    show: { opacity: 1, scale: 1 },
+    hover,
   },
   2: {
-    init: { x: 100, rotate: 20, scale: 1.3, opacity: 0 },
-    show: { x: 0, rotate: 0, opacity: 1, scale: 1 },
+    init: { opacity: 0, x: 200 },
+    show: { opacity: 1, x: 0 },
+    hover,
   },
 };
 
@@ -78,29 +101,37 @@ function CompaniesSection() {
       <AnimatedTitle text={t('homepage.companies.title')} />
       <CompaniesContainer>
         {/* whe made two versions here to prevent the animation conflict when sizing screen */}
-        {isMobile
-          ? companies.map(({ image, text }, i) => (
-              <MotionCompany
-                key={i}
-                image={image}
-                text={text}
-                variants={companyVariantsMobile}
-                initial="init"
-                whileInView="show"
-                transition={{ duration: 0.5 }}
-              />
-            ))
-          : companies.map(({ image, text }, i) => (
-              <MotionCompany
-                key={i + companies.length}
-                image={image}
-                text={text}
-                variants={companyVariantsPc[i]}
-                initial="init"
-                whileInView="show"
-                transition={{ duration: 0.5, ease: 'linear' }}
-              />
-            ))}
+        {isMobile &&
+          companies.map(({ image, text }, i) => (
+            <MotionCompany
+              key={i}
+              image={image}
+              text={text}
+              variants={companyVariantsMobile}
+              initial="init"
+              whileInView="show"
+              transition={{ duration: 0.5 }}
+            />
+          ))}
+        {!isMobile &&
+          companies.map(({ image, text }, i) => (
+            <MotionCompany
+              key={i + companies.length}
+              image={image}
+              text={text}
+              variants={companyVariantsPc[i]}
+              initial="init"
+              whileInView="show"
+              whileHover={hover.in}
+              animate={hover.out}
+              transition={{
+                duration: 0.9,
+                ease: 'easeInOut',
+                stiffness: 100,
+                damping: 10,
+              }}
+            />
+          ))}
       </CompaniesContainer>
     </ActivitiesSection>
   );

@@ -47,7 +47,6 @@ const markerVariants = {
 const Map = forwardRef(
   (
     {
-      children,
       className,
       position = [52.505499986615526, 6.090946035575811],
       address = 'Stationsplein 17, 8011 CW Zwolle',
@@ -86,7 +85,6 @@ const Map = forwardRef(
             />
           </Link>
         </MarkerContainer>
-        {children}sadfasdf
       </MapWrapper>
     );
   }

@@ -9,10 +9,13 @@ import Parallax from '../../components/Parallax';
 import AnimatedTitle from '../../components/AnimatedTitle';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
+import FlipButton from '../../components/bottuns/FlipButton';
+import FlipButton2 from '../../components/FlipButton2';
 
 const lookDownImage =
   'https://res.cloudinary.com/elsharbatly/image/upload/v1731131811/NEOX/Images/lookDown_xz1uoo.png';
 
+/* Styled components */
 // Header
 const Header = styled(Parallax)`
   height: 40vh;
@@ -70,6 +73,13 @@ const ContactMethodsContainer = styled.div`
   gap: 30px;
   width: 100%;
   margin-top: 35px;
+  > :first-child {
+    order: -2;
+  }
+  > :last-child {
+    border: 1px solid ${btnColor};
+    order: -1;
+  }
 
   //^ Tablet version
   @media only screen and (min-width: 450px) {
@@ -105,7 +115,7 @@ const ContactMethod = styled.div`
   }
 `;
 
-const LinkedTitle = styled(Link)`
+const WholeTitle = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -119,10 +129,6 @@ const LinkedTitle = styled(Link)`
     color: ${btnColor};
     font-weight: 400;
     text-align: center;
-  }
-
-  &:hover > * {
-    color: ${titleColor};
   }
 
   //^ Tablet version
@@ -139,6 +145,9 @@ const LinkedTitle = styled(Link)`
 const TheMap = styled(motion.create(Map))`
   height: 350px;
   width: 100vw;
+  align-self: center;
+
+  transform-origin: center center;
 
   //^ Tablet version
   @media only screen and (min-width: 450px) {
@@ -153,13 +162,16 @@ const TheMap = styled(motion.create(Map))`
   }
 `;
 
+/* End of styled components */
+
+//? animations
 const mapVariants = {
   initial: {
     opacity: 0,
     width: 0,
   },
   show: {
-    width: '100vw',
+    width: '100%',
     opacity: 1,
     transition: { duration: 1 },
   },
@@ -175,7 +187,6 @@ function Contacts() {
       </Header>
       <ContactsSection>
         <AnimatedTitle text={t('contacts.title')} delay={2} />
-
         {/* contact methods */}
         <ContactMethodsContainer>
           {contactMethods.map(({ iconClasses, title, href }, index) => {
@@ -185,15 +196,20 @@ function Contacts() {
             )}`;
 
             return (
-              <ContactMethod key={index} style={{ fontSize: '40px' }}>
-                <LinkedTitle to={isMap ? mapsLink : href} rel="noreferrer">
+              <FlipButton2 key={index} href={isMap ? mapsLink : href}>
+                <WholeTitle>
                   <i className={iconClasses}></i>
                   <h2>{title}</h2>
-                </LinkedTitle>
-                {isMap && <TheMap />}
-              </ContactMethod>
+                </WholeTitle>
+              </FlipButton2>
             );
           })}
+          <TheMap
+            key={44}
+            variants={mapVariants}
+            initial="initial"
+            whileInView="show"
+          />
         </ContactMethodsContainer>
       </ContactsSection>
     </PageWrapper>

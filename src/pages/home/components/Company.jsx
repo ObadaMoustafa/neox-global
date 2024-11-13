@@ -1,20 +1,11 @@
 import styled from 'styled-components';
-import { textColor, titleColor } from '../../../style';
 import { forwardRef } from 'react';
 
 const ImageContainer = styled.div`
   max-width: 250px;
   position: relative;
+  color: white;
   cursor: pointer;
-  transition: all 0.2s ease-in;
-
-  &:hover {
-    scale: 0.9;
-
-    h3 {
-      color: ${titleColor};
-    }
-  }
 
   img {
     display: block;
@@ -23,11 +14,11 @@ const ImageContainer = styled.div`
   }
 
   h3 {
+    color: inherit;
     width: 100%;
     text-align: center;
     font-size: 2rem;
     font-weight: 500;
-    color: ${textColor};
     position: absolute;
     bottom: -15px;
     text-transform: uppercase;

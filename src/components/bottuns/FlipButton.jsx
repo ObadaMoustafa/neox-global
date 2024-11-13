@@ -47,7 +47,13 @@ function FlipButton({ children, fn, href, width }) {
         variants={variants}
         initial="originalMouseOut"
         animate={isHover ? 'originalMouseIn' : 'originalMouseOut'}
-        transition={{ duration }}
+        transition={{
+          duration,
+          ease: 'easeInOut',
+          spring: 200,
+          stiffness: 450,
+          damping: 200,
+        }}
         exit={{ opacity: 0, transition: { duration: 2 } }}
         style={{ color: textColor }}
       >
@@ -57,7 +63,9 @@ function FlipButton({ children, fn, href, width }) {
         variants={variants}
         initial="secondaryMouseOut"
         animate={isHover ? 'originalMouseOut' : 'secondaryMouseOut'}
-        transition={{ duration }}
+        transition={{
+          duration,
+        }}
         exit={{ opacity: 0, transition: { duration: 2 } }}
         style={{ color: titleColor }}
       >

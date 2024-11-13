@@ -17,7 +17,7 @@ const GoTopContainer = styled(motion.div)`
   height: 100px;
   cursor: pointer;
   scale: 0.4;
-  z-index: 2;
+  z-index: 500;
 
   &:hover .icon {
     transition: all 1s;
