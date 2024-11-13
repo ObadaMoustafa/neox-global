@@ -146,6 +146,7 @@ const StyledFlipButton = styled(motion.create(FlipButton2))`
 const TheMap = styled(motion.create(Map))`
   height: 350px;
   width: 100vw;
+  align-self: center;
   transform-origin: center center;
 
   //^ Tablet version
@@ -156,7 +157,6 @@ const TheMap = styled(motion.create(Map))`
   //^ Computer version
   @media only screen and (min-width: 800px) {
     height: 55vh;
-    margin-left: -${xlPadding}px;
   }
 `;
 

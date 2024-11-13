@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
-import AnimatedText from './AnimatedText';
+import FadeTextByLetter from './FadeTextByLetter';
 
 const AnimatedMultiText = ({ className, textArr }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -17,7 +17,7 @@ const AnimatedMultiText = ({ className, textArr }) => {
   return (
     <div>
       <AnimatePresence mode="wait">
-        <AnimatedText
+        <FadeTextByLetter
           className={className}
           key={currentIndex}
           text={textArr[currentIndex]}

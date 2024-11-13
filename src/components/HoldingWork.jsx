@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import Image from './Image';
 import { motion } from 'framer-motion';
-import AnimatedText from './AnimatedText';
+import FadeTextByLetter from './FadeTextByLetter';
 
 const DIV = styled.div`
   width: 100vw;
@@ -46,7 +46,7 @@ function HoldingWork({ fn }) {
           ease: 'linear',
         }}
       />
-      <AnimatedText text="I stopped working on this project until further notice" />
+      <FadeTextByLetter text="I stopped working on this project until further notice" />
     </DIV>
   );
 }

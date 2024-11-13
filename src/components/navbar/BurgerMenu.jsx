@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import BurgerMenuIcon from './BurgerMenuIcon';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
@@ -8,9 +8,9 @@ import BurgerMenuItem from './BurgerMenuItem';
 const MenuContainer = styled(motion.div)`
   position: fixed;
   height: 100vh;
+  width: 100vw;
   top: 0;
   left: 0;
-  width: 100vw;
   background-color: ${bgColor};
   z-index: ${navMenuZIndex};
   opacity: 0.96;
@@ -53,7 +53,10 @@ function BurgerMenu() {
   //write code here
   const [isOpen, setIsOpen] = useState(false);
   const toggleMenu = () => setIsOpen(!isOpen);
-
+  useEffect(() => {
+    if (isOpen) document.body.classList.add('no-scroll');
+    else document.body.classList.remove('no-scroll');
+  }, [isOpen]);
   const { t } = useTranslation();
 
   return (

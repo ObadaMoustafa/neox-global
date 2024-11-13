@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
-import AnimatedText from './AnimatedText';
 import { useState } from 'react';
 import { titleColor, titleFontSize } from '../style';
+import FadeTextByLetter from './FadeTextByLetter';
 
 const TitleContainer = styled(motion.div)`
   height: fit-content;
@@ -35,7 +35,7 @@ const titleContainerVariants = {
   show: { width: 'fit-content' },
 };
 
-const StyledAnimatedTitle = styled(AnimatedText)`
+const StyledAnimatedTitle = styled(FadeTextByLetter)`
   color: ${titleColor};
   font-size: ${titleFontSize.mobile};
   font-weight: 700;

@@ -4,7 +4,6 @@ import 'leaflet/dist/leaflet.css';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import Image from '../../../components/Image';
-import { Link } from 'react-router-dom';
 
 const markerImage =
   'https://res.cloudinary.com/elsharbatly/image/upload/v1731131811/NEOX/Images/location-marker_y6zt0f.png';
@@ -77,14 +76,14 @@ const Map = forwardRef(
           />
         </MapContainer>
         <MarkerContainer>
-          <Link to={mapsLink} target="_blank" rel="noopener noreferrer">
+          <a href={mapsLink} target="_blank" rel="noopener noreferrer">
             <Marker
               src={markerImage}
               variants={markerVariants}
               initial="initial"
               animate="animate"
             />
-          </Link>
+          </a>
         </MarkerContainer>
       </MapWrapper>
     );
