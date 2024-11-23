@@ -6,13 +6,7 @@ import Map from './components/Map';
 import { motion } from 'framer-motion';
 import LookDownImage from '../../components/LookDownImage';
 import PageWrapper from '../../components/PageWrapper';
-import {
-  btnColor,
-  contentFontSize,
-  navHeight,
-  xlPadding,
-  xsPadding,
-} from '../../style';
+import { btnColor, contentFontSize, navHeight } from '../../style';
 import Parallax from '../../components/Parallax';
 import AnimatedTitle from '../../components/AnimatedTitle';
 import { useTranslation } from 'react-i18next';
@@ -196,7 +190,7 @@ function Contacts() {
 
   return (
     <PageWrapper>
-      <Header backgroundSrc="https://res.cloudinary.com/elsharbatly/image/upload/v1731354425/NEOX/Images/contacts_blsrez.png">
+      <Header backgroundSrc="https://res.cloudinary.com/elsharbatly/image/upload/v1732374964/NEOX/Images/email-united-states-mobile-phones-internet-worship-flame-west-africa-email-006ed22f4ef7e1345066b022c9fcf4c1_zsspif.png">
         <StyledLookDown src={lookDownImage} alt="look down" />
       </Header>
       <ContactsSection>

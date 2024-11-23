@@ -26,15 +26,15 @@
       "title": "zie ons bedrijven",
       "content": [
         {
-          "image": "https://res.cloudinary.com/elsharbatly/image/upload/v1729610046/NEOX/Images/logo-for-global-website_ffzii4.png",
-          "text": "Logistics"
-        },
-        {
-          "image": "https://res.cloudinary.com/elsharbatly/image/upload/v1729610046/NEOX/Images/cleaning_e1b1tn.png",
+          "image": "https://res.cloudinary.com/elsharbatly/image/upload/v1732374186/NEOX/Images/cleaning-logo_qurkmx.png",
           "text": "Schoonmaken"
         },
         {
-          "image": "https://res.cloudinary.com/elsharbatly/image/upload/v1729610046/NEOX/Images/EAS_b1cyju.png",
+          "image": "https://res.cloudinary.com/elsharbatly/image/upload/v1732374186/NEOX/Images/logistics-logo_bxao5d.png",
+          "text": "Logistics"
+        },
+        {
+          "image": "https://res.cloudinary.com/elsharbatly/image/upload/v1732374186/NEOX/Images/employing_w34kew.png",
           "text": "EAS"
         }
       ]

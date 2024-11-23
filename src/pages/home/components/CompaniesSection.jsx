@@ -43,7 +43,12 @@ const CompaniesContainer = styled.div`
   }
 `;
 
-const MotionCompany = motion.create(Company);
+const MotionCompany = styled(motion.create(Company))`
+  img {
+    filter: invert(92%) sepia(6%) saturate(4983%) hue-rotate(324deg)
+      brightness(77%) contrast(69%);
+  }
+`;
 
 //* animation *\\
 const companyVariantsMobile = {

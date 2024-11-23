@@ -24,11 +24,11 @@ const ImageContainer = styled.div`
     text-transform: uppercase;
   }
 `;
-const Company = forwardRef(({ image, text }, ref) => {
+const Company = forwardRef(({ image, text, className }, ref) => {
   //write code here
 
   return (
-    <ImageContainer ref={ref}>
+    <ImageContainer ref={ref} className={className}>
       <img src={image} alt={text} />
       <h3>{text}</h3>
     </ImageContainer>

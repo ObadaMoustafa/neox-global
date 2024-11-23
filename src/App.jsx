@@ -5,7 +5,6 @@ import Contacts from './pages/contacts/Contacts';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import WindowContextProvider from './contexts/WindowContext';
-import Section from './components/Section';
 import NotFound from './pages/not-found/NotFound';
 
 function App() {
