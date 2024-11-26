@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { forwardRef } from 'react';
 
-const ImageContainer = styled.div`
+const ImageContainer = styled.a`
   max-width: 250px;
   position: relative;
   color: white;
@@ -24,11 +24,17 @@ const ImageContainer = styled.div`
     text-transform: uppercase;
   }
 `;
-const Company = forwardRef(({ image, text, className }, ref) => {
+const Company = forwardRef(({ image, text, className, href }, ref) => {
   //write code here
 
   return (
-    <ImageContainer ref={ref} className={className}>
+    <ImageContainer
+      ref={ref}
+      className={className}
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       <img src={image} alt={text} />
       <h3>{text}</h3>
     </ImageContainer>

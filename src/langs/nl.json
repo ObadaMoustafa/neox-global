@@ -27,15 +27,18 @@
       "content": [
         {
           "image": "https://res.cloudinary.com/elsharbatly/image/upload/v1732374186/NEOX/Images/cleaning-logo_qurkmx.png",
-          "text": "Schoonmaken"
+          "text": "Schoonmaken",
+          "href": "https://obada-neox.netlify.app/"
         },
         {
           "image": "https://res.cloudinary.com/elsharbatly/image/upload/v1732374186/NEOX/Images/logistics-logo_bxao5d.png",
-          "text": "Logistics"
+          "text": "Logistics",
+          "href": "https://obada-neox.netlify.app/"
         },
         {
           "image": "https://res.cloudinary.com/elsharbatly/image/upload/v1732374186/NEOX/Images/employing_w34kew.png",
-          "text": "EAS"
+          "text": "EAS",
+          "href": "https://obada-neox-eas.netlify.app/"
         }
       ]
     },
@@ -49,7 +52,7 @@
     }
   },
   "about": {
-    "title": ["Over Ons", "Uitmuntendheid en Betrokkenheid in Elke Dienst"],
+    "title": ["Over Ons", "Uitmuntendheid en Betrokkenheid"],
     "content": [
       {
         "image": "https://res.cloudinary.com/elsharbatly/image/upload/v1730110321/NEOX/Images/teamwork_j17aeg.webp",

@@ -56,14 +56,6 @@ const companyVariantsMobile = {
   show: { scaleX: 1, y: 0, x: 0 },
 };
 
-const transition = {
-  duration: 0.5,
-  ease: 'linear',
-  type: 'spring',
-  stiffness: 100,
-  damping: 10,
-};
-
 const hover = {
   in: {
     scale: 0.9,
@@ -107,28 +99,32 @@ function CompaniesSection() {
       <CompaniesContainer>
         {/* whe made two versions here to prevent the animation conflict when sizing screen */}
         {isMobile &&
-          companies.map(({ image, text }, i) => (
+          companies.map(({ image, text, href }, i) => (
             <MotionCompany
               key={i}
               image={image}
               text={text}
+              href={href}
               variants={companyVariantsMobile}
               initial="init"
               whileInView="show"
+              whileTap={{ scale: 0.8, transition: { duration: 0.1 } }}
               transition={{ duration: 0.5 }}
             />
           ))}
         {!isMobile &&
-          companies.map(({ image, text }, i) => (
+          companies.map(({ image, text, href }, i) => (
             <MotionCompany
               key={i + companies.length}
               image={image}
               text={text}
+              href={href}
               variants={companyVariantsPc[i]}
               initial="init"
               whileInView="show"
               whileHover={hover.in}
               animate={hover.out}
+              whileTap={{ scale: 0.8, transition: { duration: 0.1 } }}
               transition={{
                 duration: 0.9,
                 ease: 'easeInOut',

@@ -27,15 +27,18 @@
       "content": [
         {
           "image": "https://res.cloudinary.com/elsharbatly/image/upload/v1732374186/NEOX/Images/cleaning-logo_qurkmx.png",
-          "text": "Cleaning"
+          "text": "Cleaning",
+          "href": "https://obada-neox.netlify.app/"
         },
         {
           "image": "https://res.cloudinary.com/elsharbatly/image/upload/v1732374186/NEOX/Images/logistics-logo_bxao5d.png",
-          "text": "Logistics"
+          "text": "Logistics",
+          "href": "https://obada-neox.netlify.app/"
         },
         {
           "image": "https://res.cloudinary.com/elsharbatly/image/upload/v1732374186/NEOX/Images/employing_w34kew.png",
-          "text": "Employing"
+          "text": "Employing",
+          "href": "https://obada-neox-eas.netlify.app/"
         }
       ]
     },
@@ -49,7 +52,7 @@
     }
   },
   "about": {
-    "title": ["About Us", "Excellence and Commitment in Every Service"],
+    "title": ["About Us", "Excellence and Commitment"],
     "content": [
       {
         "image": "https://res.cloudinary.com/elsharbatly/image/upload/v1730110321/NEOX/Images/teamwork_j17aeg.webp",

@@ -83,10 +83,16 @@ const aboutUsMobileVariants = {
   show: { x: 0, y: 0, opacity: 1 },
 };
 
-const aboutUsPCVariants = {
-  init: { scaleX: 1.5, opacity: 0 },
-  show: { scaleX: 1, opacity: 1, transition: { duration: 1 } },
+const rightVariants = {
+  init: { x: 150, opacity: 0 },
+  show: { x: 0, opacity: 1, transition: { duration: 0.5 } },
 };
+
+const leftVariants = {
+  init: { x: -150, opacity: 0 },
+  show: { x: 0, opacity: 1, transition: { duration: 0.5 } },
+};
+
 function About() {
   const { t } = useTranslation();
   const aboutUsContent = t('about.content', { returnObjects: true });
@@ -128,12 +134,20 @@ function About() {
               <AboutUsContentContainerPc
                 key={i}
                 style={i % 2 !== 0 ? { flexDirection: 'row-reverse' } : {}}
-                variants={aboutUsPCVariants}
-                initial="init"
-                whileInView="show"
               >
-                <AboutUsText>{text}</AboutUsText>
-                <AboutUsImagePc src={image} />
+                <AboutUsText
+                  variants={i % 2 !== 0 ? rightVariants : leftVariants}
+                  initial="init"
+                  whileInView="show"
+                >
+                  {text}
+                </AboutUsText>
+                <AboutUsImagePc
+                  src={image}
+                  variants={i % 2 !== 0 ? leftVariants : rightVariants}
+                  initial="init"
+                  whileInView="show"
+                />
               </AboutUsContentContainerPc>
             ))}
           </>

@@ -1,25 +1,36 @@
-import { motion } from 'framer-motion';
+import { motion, useAnimation, useInView } from 'framer-motion';
 import styled from 'styled-components';
-import { useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { titleColor, titleFontSize } from '../style';
 import FadeTextByLetter from './FadeTextByLetter';
 
 const TitleContainer = styled(motion.div)`
-  height: fit-content;
+  width: fit-content;
+  height: 40px;
   position: relative;
   overflow: hidden;
   margin: 0 auto;
-  display: flex;
   padding: 0 20px;
+  display: flex;
+  transform-origin: top left;
   justify-content: center;
   align-items: center;
-  border-left: 1px solid white;
-  border-right: 1px solid white;
+  gap: 20px;
   text-transform: uppercase;
   text-align: center;
 
+  .text-border1,
+  .text-border2 {
+    background-color: white;
+    height: 100%;
+    width: 1px;
+  }
+
   //^ Tablet version
   @media only screen and (min-width: 450px) {
+    .text-border2 {
+      display: none;
+    }
     margin: 0;
     border-right: none;
     text-align: left;
@@ -31,8 +42,8 @@ const TitleContainer = styled(motion.div)`
 `;
 
 const titleContainerVariants = {
-  init: { width: '4px' },
-  show: { width: 'fit-content' },
+  init: { height: 0 },
+  show: { height: '40px' },
 };
 
 const StyledAnimatedTitle = styled(FadeTextByLetter)`
@@ -51,24 +62,29 @@ const StyledAnimatedTitle = styled(FadeTextByLetter)`
   }
 `;
 function AnimatedTitle({ text, className, delay }) {
-  //write code here
-  const [showTitle, setShowTitle] = useState(false);
-  const handleShowTitle = () => {
-    if (delay)
-      Promise.resolve(setTimeout(() => setShowTitle(true), delay * 1000));
-    else setShowTitle(true);
-  };
+  const borderRef = useRef(null);
+  const isInView = useInView(borderRef, { once: true });
+  const animateBorder = useAnimation();
+
+  useEffect(() => {
+    if (isInView) {
+      animateBorder.start('show');
+    } else {
+      animateBorder.start('init');
+    }
+  }, [isInView]);
   return (
     <TitleContainer
+      ref={borderRef}
       className={className}
       variants={titleContainerVariants}
       initial="init"
-      whileInView="show"
-      onViewportEnter={handleShowTitle}
-      transition={{ width: { duration: text.length * 0.025 } }}
-      viewport={{ once: true }}
+      animate={animateBorder}
+      transition={{ duration: 0.3 }}
     >
-      {showTitle && <StyledAnimatedTitle text={showTitle ? text : ''} />}
+      <div className="text-border1"></div>
+      <StyledAnimatedTitle text={text} inView delay={0.3} once />
+      <div className="text-border2"></div>
     </TitleContainer>
   );
 }
